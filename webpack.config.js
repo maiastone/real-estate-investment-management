@@ -1,11 +1,15 @@
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js'],
     test: ['babel-polyfill', 'mocha!./test/index.js'],
   },
   output: {
-    path: __dirname,
-    filename: '[name].bundle.js',
+    path: path.join(__dirname, 'lib'),
+    filename: 'bundle.js',
+    publicPath: '/lib/'
   },
   module: {
     loaders: [
@@ -18,7 +22,7 @@ module.exports = {
         },
       },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.scss$/, loader: 'style!css!sass', include: path.join(__dirname, 'lib', 'styles') },
     ],
   },
   resolve: {

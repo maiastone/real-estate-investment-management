@@ -3,22 +3,26 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
+const http = require('http');
+const path = require('path');
 
 const compiler = webpack(webpackConfig);
 
-app.use(express.static(__dirname + '/lib'));
+const environment = process.env.NODE_ENV || 'development';
+
+app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
-  publicPath: '/',
+  publicPath: '/lib',
   stats: {
     colors: true,
   },
   historyApiFallback: true,
 }));
 
-const server = app.listen(3000, function() {
+const server = app.listen(8080, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Listening at http://%s:%s', host, port);
