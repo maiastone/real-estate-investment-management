@@ -3,8 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './lib/index.js'],
-    test: ['babel-polyfill', 'mocha!./test/index.js'],
+    main: ['./lib/index.js'],
   },
   output: {
     path: path.join(__dirname, 'lib'),
