@@ -12,6 +12,11 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+      },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass', include: path.join(__dirname, 'lib', 'styles') },
     ],
