@@ -1,7 +1,7 @@
 {
   "name": "react-starter-kit",
   "version": "1.0.0",
-  "description": "A good enough starter kit for a React project, I guess.",
+  "description": "A web application for managing single family investment properties.",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -47,6 +47,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "babel": "^6.5.2",
     "express": "^4.13.4",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
