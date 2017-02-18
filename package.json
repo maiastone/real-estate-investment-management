@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "test": "mocha --compilers js:babel/register"
   },
   "repository": {
