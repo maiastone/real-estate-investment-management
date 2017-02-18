@@ -8,7 +8,7 @@ const path = require('path');
 
 const compiler = webpack(webpackConfig);
 
-const environment = process.env.NODE_ENV || 8080;
+const environment = process.env.PORT || 8080;
 
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
