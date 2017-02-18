@@ -5,12 +5,17 @@ const webpackConfig = require('./webpack.config.js');
 const app = express();
 const http = require('http');
 const path = require('path');
-
-const compiler = webpack(webpackConfig);
-
 const environment = process.env.NODE_ENV || 'development';
+
+
 const port = process.env.PORT || 8080;
 
+const server = http.createServer(app)
+  .listen(port, () => {
+    console.log(`listening on port {port}`);
+  })
+
+const compiler = webpack(webpackConfig);
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 app.use(webpackDevMiddleware(compiler, {
@@ -23,7 +28,4 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-const server = app.listen(port, function() {
-  const host = server.address().address;
-  console.log('Listening at http://%s:%s', host, port);
-});
+module.exports = app;
