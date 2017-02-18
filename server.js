@@ -17,8 +17,11 @@ const server = http.createServer(app)
   });
 
 
-app.use(express.static(path.resolve(__dirname, '..', 'public')));
+app.use(express.static(path.resolve(__dirname, '..', 'lib')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'lib', 'index.html'));
+});
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
