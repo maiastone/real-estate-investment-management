@@ -18,7 +18,7 @@ const server = http.createServer(app)
 
 app.use(express.static(path.join(__dirname, 'lib')));
 app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/index.html')
+  response.sendFile(__dirname + '/lib/index.html')
 });
 
 app.use(webpackDevMiddleware(compiler, {
