@@ -19853,10 +19853,6 @@
 	var Home = exports.Home = function (_React$Component) {
 	  _inherits(Home, _React$Component);
 
-	  // propTypes: {
-	  //   auth: T.instanceOf(AuthService),
-	  // }
-
 	  function Home(props, context) {
 	    _classCallCheck(this, Home);
 
@@ -19903,6 +19899,10 @@
 
 	  return Home;
 	}(_react2.default.Component);
+
+	Home.propTypes = {
+	  auth: _react.PropTypes.instanceOf(_AuthService2.default)
+	};
 
 	exports.default = Home;
 
