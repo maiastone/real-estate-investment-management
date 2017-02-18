@@ -6,9 +6,9 @@ module.exports = {
     main: './lib/index.js',
   },
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, '/public'),
     filename: 'bundle.js',
-    publicPath: '/lib/'
+    publicPath: '/'
   },
   module: {
     loaders: [

@@ -16,15 +16,15 @@ const server = http.createServer(app)
     console.log(`Listening on port ${port}.`);
   });
 
-app.use(express.static(path.join(__dirname, 'lib')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/lib/index.html')
+  response.sendFile(__dirname + '/public/index.html')
 });
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: '/lib/bundle.js',
-  publicPath: '/lib',
+  publicPath: webpackConfig.output.publicPath,
   stats: {
     colors: true,
   },
