@@ -16,11 +16,9 @@ const server = http.createServer(app)
     console.log(`Listening on port ${port}.`);
   });
 
-
-app.use(express.static(path.resolve(__dirname, '..', 'lib')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'lib', 'index.html'));
+app.use(express.static(path.join(__dirname, 'lib')));
+app.get('/', (request, response) => {
+  response.sendfile(__dirname + '/index.html')
 });
 
 app.use(webpackDevMiddleware(compiler, {
