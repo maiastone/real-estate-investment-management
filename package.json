@@ -1,6 +1,9 @@
 {
   "name": "react-starter-kit",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.2.2"
+  },
   "description": "A web application for managing single family investment properties.",
   "main": "index.js",
   "scripts": {
