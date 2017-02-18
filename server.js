@@ -22,7 +22,7 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-const server = app.listen(8080, function() {
+const server = app.listen(environment, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Listening at http://%s:%s', host, port);
