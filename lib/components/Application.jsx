@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Application extends React.Component {
+export default class Application extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,4 +16,3 @@ class Application extends React.Component {
     );
   }
 }
-module.exports = Application;
