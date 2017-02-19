@@ -76192,9 +76192,9 @@
 
 	var _ProfileDetails2 = _interopRequireDefault(_ProfileDetails);
 
-	var _PropertyCards = __webpack_require__(580);
+	var _PropertyContainer = __webpack_require__(580);
 
-	var _PropertyCards2 = _interopRequireDefault(_PropertyCards);
+	var _PropertyContainer2 = _interopRequireDefault(_PropertyContainer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -76250,7 +76250,7 @@
 	          { onClick: this.logout.bind(this) },
 	          'Logout'
 	        ),
-	        _react2.default.createElement(_PropertyCards2.default, null)
+	        _react2.default.createElement(_PropertyContainer2.default, null)
 	      );
 	    }
 	  }]);
@@ -76345,6 +76345,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _PropertyCard = __webpack_require__(581);
+
+	var _PropertyCard2 = _interopRequireDefault(_PropertyCard);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76353,34 +76357,114 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PropertyCards = function (_React$Component) {
-	  _inherits(PropertyCards, _React$Component);
+	var PropertyContainer = function (_React$Component) {
+	  _inherits(PropertyContainer, _React$Component);
 
-	  function PropertyCards() {
-	    _classCallCheck(this, PropertyCards);
+	  function PropertyContainer() {
+	    _classCallCheck(this, PropertyContainer);
 
-	    return _possibleConstructorReturn(this, (PropertyCards.__proto__ || Object.getPrototypeOf(PropertyCards)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (PropertyContainer.__proto__ || Object.getPrototypeOf(PropertyContainer)).apply(this, arguments));
 	  }
 
-	  _createClass(PropertyCards, [{
+	  _createClass(PropertyContainer, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'CARDS'
-	        )
+	        _react2.default.createElement(_PropertyCard2.default, null)
 	      );
 	    }
 	  }]);
 
-	  return PropertyCards;
+	  return PropertyContainer;
 	}(_react2.default.Component);
 
-	exports.default = PropertyCards;
+	exports.default = PropertyContainer;
+
+/***/ },
+/* 581 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _properties = __webpack_require__(582);
+
+	var _properties2 = _interopRequireDefault(_properties);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PropertyCard = function (_React$Component) {
+	  _inherits(PropertyCard, _React$Component);
+
+	  function PropertyCard() {
+	    _classCallCheck(this, PropertyCard);
+
+	    return _possibleConstructorReturn(this, (PropertyCard.__proto__ || Object.getPrototypeOf(PropertyCard)).apply(this, arguments));
+	  }
+
+	  _createClass(PropertyCard, [{
+	    key: 'render',
+	    value: function render() {
+	      var propertyCard = _properties2.default.map(function (property) {
+	        return _react2.default.createElement(
+	          'div',
+	          { key: property.id },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            property.name
+	          )
+	        );
+	      });
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        propertyCard
+	      );
+	    }
+	  }]);
+
+	  return PropertyCard;
+	}(_react2.default.Component);
+
+	exports.default = PropertyCard;
+
+/***/ },
+/* 582 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var properties = [{
+	  id: 1,
+	  name: 'Blue RiNo',
+	  rentalType: 'nightly',
+	  monthToDate: 765
+	}, {
+	  id: 2,
+	  name: 'Taxi',
+	  rentalType: 'nightly',
+	  monthToDate: 765
+	}];
+
+	module.exports = properties;
 
 /***/ }
 /******/ ]);
