@@ -12,7 +12,7 @@ export class Container extends React.Component {
     }
     return (
       <div>
-        <h2>RESPFIMA</h2>
+        <h2 id='site-title'>Look-See</h2>
         {children}
       </div>
     );

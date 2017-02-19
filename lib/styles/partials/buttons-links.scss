@@ -1,6 +1,25 @@
-#logout {
+#logout  {
   width: 50px;
   height: 25px;
+  background: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+}
+
+#login {
+  margin-left: auto;
+  width: 200px;
+  height: 60px;
+  font-size: 24px;
   background: none;
   border: 1px solid gray;
   border-radius: 5px;
