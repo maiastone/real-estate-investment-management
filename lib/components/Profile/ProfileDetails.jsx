@@ -8,9 +8,8 @@ export class ProfileDetails extends React.Component {
   render() {
     const { profile } = this.props
     return (
-      <div>
+      <div className='profile-info'>
           <h3>Welcome {profile.name}!</h3>
-          <p>{profile.email}</p>
       </div>
     )
   }

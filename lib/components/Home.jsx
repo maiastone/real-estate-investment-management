@@ -37,9 +37,10 @@ export class Home extends React.Component {
     const { profile } = this.state;
     return (
       <div>
-        <h2>Home</h2>
-        <ProfileDetails profile={profile}></ProfileDetails>
-        <button onClick={this.logout.bind(this)}>Logout</button>
+        <div className='profile-header'>
+          <ProfileDetails profile={profile}></ProfileDetails>
+          <button id='logout' onClick={this.logout.bind(this)}>Logout</button>
+        </div>
         <PropertyContainer />
       </div>
     );

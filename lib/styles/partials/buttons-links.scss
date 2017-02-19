@@ -1,0 +1,11 @@
+#logout {
+  width: 50px;
+  height: 25px;
+  background: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}

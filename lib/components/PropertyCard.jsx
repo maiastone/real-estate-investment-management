@@ -5,13 +5,13 @@ export default class PropertyCard extends React.Component {
 
   render() {
     const propertyCard = properties.map((property) =>
-      <div class='property-card' key={property.id}>
+      <div className='property-card' key={property.id}>
         <h2>{property.name}</h2>
-        <h3>${property.monthToDate}</h3>
+        <h3>${property.monthToDate} MTD</h3>
       </div>
     );
     return (
-      <div>
+      <div className='property-container'>
         {propertyCard}
       </div>
     );
