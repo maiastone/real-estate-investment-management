@@ -9,10 +9,8 @@ export class ProfileDetails extends React.Component {
     const { profile } = this.props
     return (
       <div>
-          <img src='{profile.picture}' />
-          <h3>Welcome!</h3>
-          <p><strong>Name: </strong> {profile.name}</p>
-          <p><strong>Email: </strong> {profile.email}</p>
+          <h3>Welcome {profile.name}!</h3>
+          <p>{profile.email}</p>
       </div>
     )
   }

@@ -24994,7 +24994,7 @@
 	var ReactDOM = __webpack_require__(158);
 
 
-	var auth = new _AuthService2.default('qHCAwXwsNocsS60Lq96fs7H6qTs3osQD', 'maiastone.auth0.com');
+	var auth = new _AuthService2.default('nbIc15zEIt5r1tz5FWk75bvdo5TFKI6S', 'maiastone.auth0.com');
 
 	// validate authentication for private routes
 	var requireAuth = function requireAuth(nextState, replace) {
@@ -25007,8 +25007,8 @@
 	  return React.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _Container2.default, auth: auth },
-	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
-	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default })
+	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
+	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default })
 	  );
 	};
 
@@ -25209,8 +25209,11 @@
 
 	    _this.lock = new _auth0Lock2.default(clientId, domain, {
 	      auth: {
-	        redirectUrl: 'http://localhost:8080/login',
+	        redirectUrl: 'http://localhost:8080/home',
 	        responseType: 'token'
+	      },
+	      languageDictionary: {
+	        title: 'Real Estate Management'
 	      }
 	    });
 	    // Add callback for lock `authenticated` event
@@ -76292,32 +76295,16 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('img', { src: '{profile.picture}' }),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
-	          'Welcome!'
+	          'Welcome ',
+	          profile.name,
+	          '!'
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Name: '
-	          ),
-	          ' ',
-	          profile.name
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Email: '
-	          ),
-	          ' ',
 	          profile.email
 	        )
 	      );
