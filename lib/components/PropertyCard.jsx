@@ -1,5 +1,6 @@
 import React from 'react';
-import properties from '../properties.js'
+import properties from '../properties.js';
+import ToggleSwitch from './ToggleSwitch.jsx';
 
 export default class PropertyCard extends React.Component {
 
@@ -11,8 +12,11 @@ export default class PropertyCard extends React.Component {
       </div>
     );
     return (
-      <div className='property-container'>
-        {propertyCard}
+      <div>
+        <div className='property-container'>
+          <ToggleSwitch />
+          {propertyCard}
+        </div>
       </div>
     );
   }
