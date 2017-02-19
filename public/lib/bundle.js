@@ -24974,11 +24974,11 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Home = __webpack_require__(218);
+	var _Home = __webpack_require__(578);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Login = __webpack_require__(578);
+	var _Login = __webpack_require__(218);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
@@ -25007,6 +25007,7 @@
 	  return React.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _Container2.default, auth: auth },
+	    React.createElement(_reactRouter.IndexRoute, { component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default })
 	  );
@@ -25030,6 +25031,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Login = __webpack_require__(218);
+
+	var _Login2 = _interopRequireDefault(_Login);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25063,7 +25068,7 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Hello Other World'
+	          'RESPFIMA'
 	        ),
 	        children
 	      );
@@ -25084,7 +25089,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Home = undefined;
+	exports.Login = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -25096,14 +25101,6 @@
 
 	var _AuthService2 = _interopRequireDefault(_AuthService);
 
-	var _Login = __webpack_require__(578);
-
-	var _Login2 = _interopRequireDefault(_Login);
-
-	var _ProfileDetails = __webpack_require__(579);
-
-	var _ProfileDetails2 = _interopRequireDefault(_ProfileDetails);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25112,34 +25109,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Home = exports.Home = function (_React$Component) {
-	  _inherits(Home, _React$Component);
+	var Login = exports.Login = function (_React$Component) {
+	  _inherits(Login, _React$Component);
 
-	  function Home(props, context) {
-	    _classCallCheck(this, Home);
+	  function Login() {
+	    _classCallCheck(this, Login);
 
-	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props, context));
-
-	    _this.state = {
-	      profile: props.auth.getProfile()
-	    };
-	    // listen to profile_updated events to update internal state
-	    // props.auth.on('profile_updated', (newProfile) => {
-	    //   this.setState({ profile: newProfile });
-	    // });
-	    return _this;
+	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
 	  }
 
-	  _createClass(Home, [{
-	    key: 'logout',
-	    value: function logout() {
-	      this.props.auth.logout();
-	      this.context.router.push('/login');
-	    }
-	  }, {
+	  _createClass(Login, [{
 	    key: 'render',
 	    value: function render() {
-	      var profile = this.state.profile;
+	      var auth = this.props.auth;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -25147,28 +25129,25 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Home'
+	          'Login'
 	        ),
-	        _react2.default.createElement(_ProfileDetails2.default, { profile: profile }),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: this.logout.bind(this) },
-	          'Logout'
+	          { onClick: auth.login.bind(this) },
+	          'Login'
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Home;
+	  return Login;
 	}(_react2.default.Component);
 
-	Home.contextTypes = {
-	  router: _react.PropTypes.object
-	};
-	Home.propTypes = {
+	Login.propTypes = {
+	  location: _react.PropTypes.object,
 	  auth: _react.PropTypes.instanceOf(_AuthService2.default)
 	};
-	exports.default = Home;
+	exports.default = Login;
 
 /***/ },
 /* 219 */
@@ -76193,7 +76172,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Login = undefined;
+	exports.Home = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -76205,6 +76184,18 @@
 
 	var _AuthService2 = _interopRequireDefault(_AuthService);
 
+	var _Login = __webpack_require__(218);
+
+	var _Login2 = _interopRequireDefault(_Login);
+
+	var _ProfileDetails = __webpack_require__(579);
+
+	var _ProfileDetails2 = _interopRequireDefault(_ProfileDetails);
+
+	var _PropertyCards = __webpack_require__(580);
+
+	var _PropertyCards2 = _interopRequireDefault(_PropertyCards);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76213,19 +76204,37 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Login = exports.Login = function (_React$Component) {
-	  _inherits(Login, _React$Component);
+	var Home = exports.Home = function (_React$Component) {
+	  _inherits(Home, _React$Component);
 
-	  function Login() {
-	    _classCallCheck(this, Login);
+	  function Home(props, context) {
+	    _classCallCheck(this, Home);
 
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props, context));
+
+	    _this.state = {
+	      profile: props.auth.getProfile()
+	    };
+	    // listen to profile_updated events to update internal state
+	    // props.auth.on('profile_updated', (newProfile) => {
+	    //   this.setState({ profile: newProfile });
+	    // });
+	    return _this;
 	  }
 
-	  _createClass(Login, [{
+	  _createClass(Home, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	  }, {
+	    key: 'logout',
+	    value: function logout() {
+	      this.props.auth.logout();
+	      this.context.router.push('/login');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var auth = this.props.auth;
+	      var profile = this.state.profile;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -76233,25 +76242,29 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Login'
+	          'Home'
 	        ),
+	        _react2.default.createElement(_ProfileDetails2.default, { profile: profile }),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: auth.login.bind(this) },
-	          'Login'
-	        )
+	          { onClick: this.logout.bind(this) },
+	          'Logout'
+	        ),
+	        _react2.default.createElement(_PropertyCards2.default, null)
 	      );
 	    }
 	  }]);
 
-	  return Login;
+	  return Home;
 	}(_react2.default.Component);
 
-	Login.propTypes = {
-	  location: _react.PropTypes.object,
+	Home.contextTypes = {
+	  router: _react.PropTypes.object
+	};
+	Home.propTypes = {
 	  auth: _react.PropTypes.instanceOf(_AuthService2.default)
 	};
-	exports.default = Login;
+	exports.default = Home;
 
 /***/ },
 /* 579 */
@@ -76315,6 +76328,59 @@
 	}(_react2.default.Component);
 
 	exports.default = ProfileDetails;
+
+/***/ },
+/* 580 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PropertyCards = function (_React$Component) {
+	  _inherits(PropertyCards, _React$Component);
+
+	  function PropertyCards() {
+	    _classCallCheck(this, PropertyCards);
+
+	    return _possibleConstructorReturn(this, (PropertyCards.__proto__ || Object.getPrototypeOf(PropertyCards)).apply(this, arguments));
+	  }
+
+	  _createClass(PropertyCards, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'CARDS'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PropertyCards;
+	}(_react2.default.Component);
+
+	exports.default = PropertyCards;
 
 /***/ }
 /******/ ]);

@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react';
 import AuthService from '../utils/AuthService';
 import Login from './Login.jsx';
 import ProfileDetails from '../components/Profile/ProfileDetails.jsx';
-
+import PropertyCards from './PropertyCards.jsx'
 
 export class Home extends React.Component {
   static contextTypes = {
@@ -24,6 +24,10 @@ export class Home extends React.Component {
     // });
   }
 
+  componentDidMount() {
+
+  }
+
   logout() {
     this.props.auth.logout();
     this.context.router.push('/login');
@@ -36,6 +40,7 @@ export class Home extends React.Component {
         <h2>Home</h2>
         <ProfileDetails profile={profile}></ProfileDetails>
         <button onClick={this.logout.bind(this)}>Logout</button>
+        <PropertyCards />
       </div>
     );
   }
