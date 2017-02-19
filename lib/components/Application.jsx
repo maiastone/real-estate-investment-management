@@ -1,19 +1,13 @@
-import React, { Component, PropTypes as T } from 'react';
+import React, { PropTypes as T } from 'react';
 
-export default class Application extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
+export class Application extends React.Component {
 
   render() {
     let children = null;
     if (this.props.children) {
       children = React.cloneElement(this.props.children, {
-        auth: this.props.route.auth
-      })
+        auth: this.props.route.auth,
+      });
     }
     return (
       <div>
@@ -23,3 +17,5 @@ export default class Application extends Component {
     );
   }
 }
+
+export default Application;

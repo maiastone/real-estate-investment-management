@@ -1,12 +1,17 @@
-import React, { PropTypes as T } from 'react'
-import AuthService from '../utils/AuthService'
+import React, { PropTypes as T } from 'react';
+import AuthService from '../utils/AuthService';
+import Login from './Login.jsx';
 import ProfileDetails from '../components/Profile/ProfileDetails.jsx';
 
 
 export class Home extends React.Component {
-  contextTypes: {
+  static contextTypes = {
     router: T.object,
   }
+
+  static propTypes = {
+    auth: T.instanceOf(AuthService),
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -14,9 +19,9 @@ export class Home extends React.Component {
       profile: props.auth.getProfile(),
     };
     // listen to profile_updated events to update internal state
-    props.auth.on('profile_updated', (newProfile) => {
-      this.setState({ profile: newProfile });
-    });
+    // props.auth.on('profile_updated', (newProfile) => {
+    //   this.setState({ profile: newProfile });
+    // });
   }
 
   logout() {
@@ -30,14 +35,11 @@ export class Home extends React.Component {
       <div>
         <h2>Home</h2>
         <ProfileDetails profile={profile}></ProfileDetails>
-        <Button onClick={this.logout.bind(this)}>Logout</Button>
+        <button onClick={this.logout.bind(this)}>Logout</button>
       </div>
     );
   }
 }
 
-Home.propTypes = {
-  auth: T.instanceOf(AuthService),
-};
 
 export default Home;

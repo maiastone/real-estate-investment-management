@@ -10,11 +10,9 @@ export class ProfileDetails extends React.Component {
     return (
       <div>
           <img src='{profile.picture}' />
-          <h3>Profile</h3>
+          <h3>Welcome!</h3>
           <p><strong>Name: </strong> {profile.name}</p>
           <p><strong>Email: </strong> {profile.email}</p>
-          <p><strong>Created At: </strong> {profile.created_at}</p>
-          <p><strong>Updated At: </strong> {profile.updated_at}</p>
       </div>
     )
   }
