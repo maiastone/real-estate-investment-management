@@ -1,20 +1,30 @@
-import React, { PropTypes as T } from 'react';
+import React, { PropTypes } from 'react';
+import { Router } from 'react-router';
 
-export class Application extends React.Component {
+class Application extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
+  static propTypes = {
+    history: PropTypes.object.isRequired,
+    routes: PropTypes.element.isRequired,
+  };
+
+  get content() {
+    return (
+      <Router
+        routes={this.props.routes}
+        history={this.props.history} />
+    );
+  }
 
   render() {
-    let children = null;
-    if (this.props.children) {
-      children = React.cloneElement(this.props.children, {
-        auth: this.props.route.auth,
-      });
-    }
     return (
-      <div>
-        <h2>Hello Other World</h2>
-        {children}
-      </div>
-    );
+     <div style={{ height: '100%' }}>
+       {this.content}
+     </div>
+   );
   }
 }
 
