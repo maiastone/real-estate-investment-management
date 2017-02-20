@@ -28,24 +28,29 @@ export default class PropertyCard extends React.Component {
     }
   }
 
-  //     properties.map((property) => {
-  //       return <div className='property-card' key={property.id}>
-  //         <h2>{property.name}</h2>
-  //         <div>
-  //           <h3>${property.currentPrincipal}</h3>
-  //           <h3>${property.currentInterest}</h3>
-  //         </div>
-  //       </div>; });
-  //   }
-  // }
 
   render() {
-    const propertyIncomeCard = properties.map((property) => {
+
+    var component;
+     if (this.state.incomeView === 'true') {
+       component = properties.map((property) => {
       return <div className='property-card' key={property.id}>
         <h2>{property.name}</h2>
         <h3>${property.monthToDate} MTD</h3>
       </div>;
     });
+  } else {
+    component =
+        properties.map((property) => {
+          return <div className='property-card' key={property.id}>
+            <h2>{property.name}</h2>
+            <div>
+              <h3>${property.currentPrincipal}</h3>
+              <h3>${property.currentInterest}</h3>
+            </div>
+          </div>; });
+      }
+
 
     return (
         <div className='property-container'>
@@ -53,7 +58,7 @@ export default class PropertyCard extends React.Component {
             toggleModeIncome={this.toggleModeIncome.bind(this)}
             toggleModeDebt={this.toggleModeDebt.bind(this)}
             />
-          {propertyIncomeCard}
+          {component}
         </div>
     );
   }

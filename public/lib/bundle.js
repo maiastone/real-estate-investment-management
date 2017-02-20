@@ -76436,39 +76436,59 @@
 	        });
 	      }
 	    }
-
-	    //     properties.map((property) => {
-	    //       return <div className='property-card' key={property.id}>
-	    //         <h2>{property.name}</h2>
-	    //         <div>
-	    //           <h3>${property.currentPrincipal}</h3>
-	    //           <h3>${property.currentInterest}</h3>
-	    //         </div>
-	    //       </div>; });
-	    //   }
-	    // }
-
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var propertyIncomeCard = _properties2.default.map(function (property) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'property-card', key: property.id },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            property.name
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            '$',
-	            property.monthToDate,
-	            ' MTD'
-	          )
-	        );
-	      });
+
+	      var component;
+	      if (this.state.incomeView === 'true') {
+	        component = _properties2.default.map(function (property) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'property-card', key: property.id },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              property.name
+	            ),
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              '$',
+	              property.monthToDate,
+	              ' MTD'
+	            )
+	          );
+	        });
+	      } else {
+	        component = _properties2.default.map(function (property) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'property-card', key: property.id },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              property.name
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                '$',
+	                property.currentPrincipal
+	              ),
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                '$',
+	                property.currentInterest
+	              )
+	            )
+	          );
+	        });
+	      }
 
 	      return _react2.default.createElement(
 	        'div',
@@ -76477,7 +76497,7 @@
 	          toggleModeIncome: this.toggleModeIncome.bind(this),
 	          toggleModeDebt: this.toggleModeDebt.bind(this)
 	        }),
-	        propertyIncomeCard
+	        component
 	      );
 	    }
 	  }]);
