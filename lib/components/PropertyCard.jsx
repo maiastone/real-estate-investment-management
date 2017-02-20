@@ -44,10 +44,8 @@ export default class PropertyCard extends React.Component {
       component =
         properties.map((property) => {
           return <div className='property-card' key={property.id}>
-            <img className='chart-img'
-              src='/lib/images/chart_line.png'
-              >
-            </img>
+            <Link to='/detail'><img className='chart-img'
+              src='/lib/images/chart_line.png'></img></Link>
             <h2>{property.name}</h2>
             <div>
               <h4>${property.currentPrincipal} Principal</h4>
