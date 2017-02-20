@@ -64,7 +64,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	__webpack_require__(587);
+	__webpack_require__(588);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24976,7 +24976,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Home = __webpack_require__(578);
+	var _Home = __webpack_require__(579);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
@@ -24984,7 +24984,7 @@
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _AllPropertyContainer = __webpack_require__(584);
+	var _AllPropertyContainer = __webpack_require__(585);
 
 	var _AllPropertyContainer2 = _interopRequireDefault(_AllPropertyContainer);
 
@@ -25103,6 +25103,10 @@
 
 	var _AuthService2 = _interopRequireDefault(_AuthService);
 
+	var _Header = __webpack_require__(578);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25127,11 +25131,16 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'login-container' },
+	        null,
+	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
-	          'button',
-	          { id: 'login', onClick: auth.login.bind(this) },
-	          'Login'
+	          'div',
+	          { className: 'login-container' },
+	          _react2.default.createElement(
+	            'button',
+	            { id: 'login', onClick: auth.login.bind(this) },
+	            'Login'
+	          )
 	        )
 	      );
 	    }
@@ -76169,6 +76178,59 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+
+	  function Header() {
+	    _classCallCheck(this, Header);
+
+	    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	  }
+
+	  _createClass(Header, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'header' },
+	        _react2.default.createElement(
+	          'h2',
+	          { id: 'site-title' },
+	          'Real Estate Dashboard'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Header;
+	}(_react2.default.Component);
+
+	exports.default = Header;
+
+/***/ },
+/* 579 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.Home = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -76185,11 +76247,15 @@
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _ProfileDetails = __webpack_require__(579);
+	var _Header = __webpack_require__(578);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _ProfileDetails = __webpack_require__(580);
 
 	var _ProfileDetails2 = _interopRequireDefault(_ProfileDetails);
 
-	var _PropertyContainer = __webpack_require__(580);
+	var _PropertyContainer = __webpack_require__(581);
 
 	var _PropertyContainer2 = _interopRequireDefault(_PropertyContainer);
 
@@ -76212,10 +76278,6 @@
 	    _this.state = {
 	      profile: _this.props.auth.getProfile()
 	    };
-	    // listen to profile_updated events to update internal state
-	    // props.auth.on('profile_updated', (newProfile) => {
-	    //   this.setState({ profile: newProfile });
-	    // });
 	    return _this;
 	  }
 
@@ -76233,11 +76295,7 @@
 	      return _react2.default.createElement(
 	        'header',
 	        { className: 'header' },
-	        _react2.default.createElement(
-	          'h2',
-	          { id: 'site-title' },
-	          'Real Estate Dashboard'
-	        ),
+	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'profile-header' },
@@ -76265,7 +76323,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 579 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76323,7 +76381,7 @@
 	exports.default = ProfileDetails;
 
 /***/ },
-/* 580 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76338,7 +76396,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PropertyCard = __webpack_require__(581);
+	var _PropertyCard = __webpack_require__(582);
 
 	var _PropertyCard2 = _interopRequireDefault(_PropertyCard);
 
@@ -76376,7 +76434,7 @@
 	exports.default = PropertyContainer;
 
 /***/ },
-/* 581 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76391,11 +76449,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _properties = __webpack_require__(582);
+	var _properties = __webpack_require__(583);
 
 	var _properties2 = _interopRequireDefault(_properties);
 
-	var _ToggleSwitch = __webpack_require__(583);
+	var _ToggleSwitch = __webpack_require__(584);
 
 	var _ToggleSwitch2 = _interopRequireDefault(_ToggleSwitch);
 
@@ -76525,7 +76583,7 @@
 	exports.default = PropertyCard;
 
 /***/ },
-/* 582 */
+/* 583 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -76591,7 +76649,7 @@
 	module.exports = properties;
 
 /***/ },
-/* 583 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76600,7 +76658,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PropertyCard = __webpack_require__(581);
+	var _PropertyCard = __webpack_require__(582);
 
 	var _PropertyCard2 = _interopRequireDefault(_PropertyCard);
 
@@ -76658,7 +76716,7 @@
 	module.exports = ToggleSwitch;
 
 /***/ },
-/* 584 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76673,11 +76731,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PropertyList = __webpack_require__(585);
+	var _PropertyList = __webpack_require__(586);
 
 	var _PropertyList2 = _interopRequireDefault(_PropertyList);
 
-	var _PropertyDetailCard = __webpack_require__(586);
+	var _Header = __webpack_require__(578);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _PropertyDetailCard = __webpack_require__(587);
 
 	var _PropertyDetailCard2 = _interopRequireDefault(_PropertyDetailCard);
 
@@ -76704,11 +76766,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h2',
-	          { id: 'site-title' },
-	          'Real Estate Dashboard'
-	        ),
+	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'detail-view' },
@@ -76725,7 +76783,7 @@
 	exports.default = AllPropertyContainer;
 
 /***/ },
-/* 585 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76740,7 +76798,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _properties = __webpack_require__(582);
+	var _properties = __webpack_require__(583);
 
 	var _properties2 = _interopRequireDefault(_properties);
 
@@ -76770,8 +76828,9 @@
 	          null,
 	          _react2.default.createElement(
 	            'li',
-	            { className: 'property-list',
-	              key: property.id },
+	            { key: property.id,
+	              className: 'property-list'
+	            },
 	            property.name
 	          )
 	        );
@@ -76791,7 +76850,7 @@
 	exports.default = PropertyList;
 
 /***/ },
-/* 586 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76828,7 +76887,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'graph-container' },
 	        'Hello'
 	      );
 	    }
@@ -76840,16 +76899,16 @@
 	exports.default = PropertyDetailCard;
 
 /***/ },
-/* 587 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(588);
+	var content = __webpack_require__(589);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(590)(content, {});
+	var update = __webpack_require__(591)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -76866,21 +76925,21 @@
 	}
 
 /***/ },
-/* 588 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(589)();
+	exports = module.exports = __webpack_require__(590)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f4f4f4;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 2em;\n  text-transform: uppercase;\n  color: #691B8D; }\n\nh4 {\n  font-size: 32px;\n  padding: 3%;\n  text-align: center; }\n\n#site-title {\n  font-family: \"Limelight\", cursive;\n  padding: 2%;\n  font-size: 3em;\n  background-color: #BADA55;\n  width: 100%;\n  z-index: 999;\n  color: black; }\n\n.profile-header {\n  background-color: #BADA55;\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  height: 50px;\n  border-bottom: 1px solid gray;\n  z-index: 999; }\n  .profile-header h3 {\n    padding-left: 5%; }\n  .profile-header button {\n    margin-right: 2%; }\n\n.property-list {\n  height: 50px;\n  width: 125px;\n  margin-right: 25px;\n  background-color: #BADA55;\n  border: 1px solid black;\n  font-size: 24px;\n  padding: 6%; }\n\n.profile-info {\n  width: 50%; }\n\n.chart-img {\n  height: 25px;\n  width: 25px;\n  position: relative;\n  margin-left: 90%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.detail-view {\n  display: flex;\n  justify-content: flex-start; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #logout:hover {\n    color: white;\n    background-color: black; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#login {\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n.switch-container {\n  width: 100%; }\n\n.switch {\n  position: relative;\n  margin: 20px auto;\n  height: 30px;\n  width: 126px;\n  background: rgba(0, 0, 0, 0.25);\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1); }\n\n.switch-label {\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 60px;\n  line-height: 32px;\n  font-size: 18px;\n  color: rgba(255, 255, 255, 0.35);\n  text-align: center;\n  cursor: pointer; }\n\n.switch-label:active {\n  font-weight: bold; }\n\n.switch-label-off {\n  padding-left: 2px; }\n\n.switch-label-on {\n  padding-right: 2px; }\n\n.switch-input {\n  display: none; }\n\n.switch-input:active + .switch-label {\n  font-weight: bold;\n  color: rgba(0, 0, 0, 0.65);\n  -webkit-transition: 0.15s ease-out;\n  -moz-transition: 0.15s ease-out;\n  -o-transition: 0.15s ease-out;\n  transition: 0.15s ease-out; }\n\n.switch-input:active + .switch-label-on ~ .switch-selection {\n  left: 60px; }\n\n.switch-selection {\n  display: block;\n  position: absolute;\n  z-index: 1;\n  top: 1px;\n  left: 1px;\n  width: 65px;\n  height: 28px;\n  background: #ffffff;\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  -webkit-transition: left 0.15s ease-out;\n  -moz-transition: left 0.15s ease-out;\n  -o-transition: left 0.15s ease-out;\n  transition: left 0.15s ease-out; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2, .property-card h3 {\n    text-align: center;\n    font-size: 2em;\n    padding: 8%; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 5%; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f4f4f4;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 2em;\n  text-transform: uppercase;\n  color: #691B8D; }\n\nh4 {\n  font-size: 30px;\n  padding: 1%;\n  text-align: center; }\n\n#site-title {\n  font-family: \"Limelight\", cursive;\n  padding: 2%;\n  font-size: 3em;\n  background-color: #BADA55;\n  width: 100%;\n  z-index: 999;\n  color: black; }\n\n.header {\n  border-bottom: 1px inset gray; }\n\n.profile-header {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  height: 50px;\n  z-index: 999;\n  padding-top: 10px; }\n  .profile-header h3 {\n    padding-left: 5%; }\n  .profile-header button {\n    margin-right: 2%; }\n\n.property-list {\n  height: 50px;\n  width: 125px;\n  margin-right: 25px;\n  border: .5px inset black;\n  font-size: 24px;\n  padding: 6%;\n  border-radius: 5px;\n  margin: 5px;\n  line-height: 50px; }\n\n.profile-info {\n  width: 50%; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 88%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.detail-view {\n  display: flex;\n  justify-content: flex-start; }\n\n.graph-container {\n  margin: 5px 0 0 3%; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #logout:hover {\n    color: white;\n    background-color: black; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n.switch-container {\n  width: 100%; }\n\n.switch {\n  position: relative;\n  margin: 20px auto;\n  height: 30px;\n  width: 126px;\n  background: rgba(0, 0, 0, 0.25);\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1); }\n\n.switch-label {\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 60px;\n  line-height: 32px;\n  font-size: 18px;\n  color: rgba(255, 255, 255, 0.35);\n  text-align: center;\n  cursor: pointer; }\n\n.switch-label:active {\n  font-weight: bold; }\n\n.switch-label-off {\n  padding-left: 2px; }\n\n.switch-label-on {\n  padding-right: 2px; }\n\n.switch-input {\n  display: none; }\n\n.switch-input:active + .switch-label {\n  font-weight: bold;\n  color: rgba(0, 0, 0, 0.65);\n  -webkit-transition: 0.15s ease-out;\n  -moz-transition: 0.15s ease-out;\n  -o-transition: 0.15s ease-out;\n  transition: 0.15s ease-out; }\n\n.switch-input:active + .switch-label-on ~ .switch-selection {\n  left: 60px; }\n\n.switch-selection {\n  display: block;\n  position: absolute;\n  z-index: 1;\n  top: 1px;\n  left: 1px;\n  width: 65px;\n  height: 28px;\n  background: #ffffff;\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  -webkit-transition: left 0.15s ease-out;\n  -moz-transition: left 0.15s ease-out;\n  -o-transition: left 0.15s ease-out;\n  transition: left 0.15s ease-out; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2, .property-card h3 {\n    text-align: center;\n    font-size: 2em;\n    padding: 8%; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 5%; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 589 */
+/* 590 */
 /***/ function(module, exports) {
 
 	/*
@@ -76936,7 +76995,7 @@
 
 
 /***/ },
-/* 590 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

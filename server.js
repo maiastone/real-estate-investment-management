@@ -29,9 +29,13 @@ app.get('/home', (request, response) => {
   response.sendFile(__dirname + '/public/index.html')
 });
 
-// app.get('/login', (request, response) => {
-//   response.sendFile(__dirname + '/public/index.html')
-// });
+app.get('/login', (request, response) => {
+  response.sendFile(__dirname + '/public/index.html')
+});
+
+app.get('/detail', (request, response) => {
+  response.sendFile(__dirname + '/public/index.html')
+});
 
 const server = http.createServer(app)
   .listen(port, () => {

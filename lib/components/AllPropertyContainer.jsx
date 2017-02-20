@@ -1,5 +1,6 @@
 import React from 'react';
 import PropertyList from './PropertyList.jsx';
+import Header from './Header.jsx';
 import PropertyDetailCard from './PropertyDetailCard.jsx';
 
 export default class AllPropertyContainer extends React.Component {
@@ -7,7 +8,7 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <h2 id='site-title'>Real Estate Dashboard</h2>
+        <Header />
         <div className='detail-view'>
           <PropertyList />
           <PropertyDetailCard />

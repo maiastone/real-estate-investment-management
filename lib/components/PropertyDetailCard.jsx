@@ -4,7 +4,7 @@ export default class PropertyDetailCard extends React.Component {
 
   render() {
     return (
-      <div>Hello</div>
+      <div className='graph-container'>Hello</div>
     );
   }
 }

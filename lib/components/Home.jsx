@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react';
 import AuthService from '../utils/AuthService';
 import Login from './Login.jsx';
+import Header from './Header.jsx';
 import ProfileDetails from '../components/Profile/ProfileDetails.jsx';
 import PropertyContainer from './PropertyContainer.jsx';
 
@@ -19,10 +20,6 @@ export class Home extends React.Component {
     this.state = {
       profile: this.props.auth.getProfile(),
     };
-    // listen to profile_updated events to update internal state
-    // props.auth.on('profile_updated', (newProfile) => {
-    //   this.setState({ profile: newProfile });
-    // });
   }
 
   logout() {
@@ -34,7 +31,7 @@ export class Home extends React.Component {
     const { profile } = this.state;
     return (
       <header className='header'>
-        <h2 id='site-title'>Real Estate Dashboard</h2>
+        <Header />
         <div className='profile-header'>
           <ProfileDetails profile={profile}></ProfileDetails>
           <button id='logout' onClick={this.logout.bind(this)}>Logout</button>
