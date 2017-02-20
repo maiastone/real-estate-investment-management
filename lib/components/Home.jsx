@@ -33,13 +33,14 @@ export class Home extends React.Component {
   render() {
     const { profile } = this.state;
     return (
-      <div>
+      <header className='header'>
+        <h2 id='site-title'>Real Estate Dashboard</h2>
         <div className='profile-header'>
           <ProfileDetails profile={profile}></ProfileDetails>
           <button id='logout' onClick={this.logout.bind(this)}>Logout</button>
         </div>
         <PropertyContainer />
-      </div>
+      </header>
     );
   }
 }
