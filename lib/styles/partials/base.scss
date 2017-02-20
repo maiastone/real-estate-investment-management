@@ -1,11 +1,19 @@
 body {
   font-family: $primary-font;
   background-color: $body-color;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 h2 {
   font-size: 2em;
+  text-transform: uppercase;
+  color: #691B8D;
+}
+
+h4 {
+  font-size: 32px;
+  padding: 3%;
+  text-align: center;
 }
 
 #site-title {
@@ -15,6 +23,7 @@ h2 {
   background-color: $header-color;
   width: 100%;
   z-index: 999;
+  color: black;
 }
 
 .profile-header {

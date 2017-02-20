@@ -30,27 +30,25 @@ export default class PropertyCard extends React.Component {
 
 
   render() {
-
-    var component;
-     if (this.state.incomeView === 'true') {
-       component = properties.map((property) => {
-      return <div className='property-card' key={property.id}>
+    let component;
+    if (this.state.incomeView === 'true') {
+      component = properties.map((property) => {
+        return <div className='property-card' key={property.id}>
         <h2>{property.name}</h2>
-        <h3>${property.monthToDate} MTD</h3>
+        <h3>${property.monthToDate} mtd</h3>
       </div>;
-    });
-  } else {
-    component =
+      });
+    } else {
+      component =
         properties.map((property) => {
           return <div className='property-card' key={property.id}>
             <h2>{property.name}</h2>
             <div>
-              <h3>${property.currentPrincipal}</h3>
-              <h3>${property.currentInterest}</h3>
+              <h4>${property.currentPrincipal} Principal</h4>
+              <h4>${property.currentInterest} Interest</h4>
             </div>
           </div>; });
-      }
-
+    }
 
     return (
         <div className='property-container'>
