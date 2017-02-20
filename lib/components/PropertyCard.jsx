@@ -6,20 +6,19 @@ export default class PropertyCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      mode: 'income',
+      incomeView: 'true',
     };
   }
 
   toggleMode(e) {
-    debugger;
     e.preventDefault();
-    if (this.state.mode === 'income') {
+    if (this.state.incomeView === 'true') {
       this.setState({
-        mode: 'debt',
+        incomeView: 'false',
       });
     } else {
       this.setState({
-        mode: 'income',
+        incomeView: 'true',
       });
     }
   }

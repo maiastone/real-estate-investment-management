@@ -17,16 +17,12 @@ export class Home extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      profile: props.auth.getProfile(),
+      profile: this.props.auth.getProfile(),
     };
     // listen to profile_updated events to update internal state
     // props.auth.on('profile_updated', (newProfile) => {
     //   this.setState({ profile: newProfile });
     // });
-  }
-
-  componentDidMount() {
-
   }
 
   logout() {

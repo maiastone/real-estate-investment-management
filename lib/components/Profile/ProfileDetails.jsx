@@ -5,6 +5,7 @@ export class ProfileDetails extends React.Component {
     profile: T.object
   }
 
+
   render() {
     const { profile } = this.props
     return (

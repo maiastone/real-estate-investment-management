@@ -76210,7 +76210,7 @@
 	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props, context));
 
 	    _this.state = {
-	      profile: props.auth.getProfile()
+	      profile: _this.props.auth.getProfile()
 	    };
 	    // listen to profile_updated events to update internal state
 	    // props.auth.on('profile_updated', (newProfile) => {
@@ -76220,9 +76220,6 @@
 	  }
 
 	  _createClass(Home, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
-	  }, {
 	    key: 'logout',
 	    value: function logout() {
 	      this.props.auth.logout();
@@ -76414,7 +76411,7 @@
 	    var _this = _possibleConstructorReturn(this, (PropertyCard.__proto__ || Object.getPrototypeOf(PropertyCard)).call(this));
 
 	    _this.state = {
-	      mode: 'income'
+	      incomeView: 'true'
 	    };
 	    return _this;
 	  }
@@ -76422,15 +76419,14 @@
 	  _createClass(PropertyCard, [{
 	    key: 'toggleMode',
 	    value: function toggleMode(e) {
-	      debugger;
 	      e.preventDefault();
-	      if (this.state.mode === 'income') {
+	      if (this.state.incomeView === 'true') {
 	        this.setState({
-	          mode: 'debt'
+	          incomeView: 'false'
 	        });
 	      } else {
 	        this.setState({
-	          mode: 'income'
+	          incomeView: 'true'
 	        });
 	      }
 	    }
