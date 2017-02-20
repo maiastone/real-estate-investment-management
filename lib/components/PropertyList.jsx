@@ -6,8 +6,8 @@ export default class PropertyList extends React.Component {
 
   render() {
     const propertyList = properties.map((property) => {
-      return <ul><li>{property.name}</li></ul>});
-    }
+      return <ul><li>{property.name}</li></ul>;
+    });
 
     return (
       <div>

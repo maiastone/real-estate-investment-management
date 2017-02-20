@@ -1,6 +1,7 @@
 import React from 'react';
 import properties from '../properties.js';
 import ToggleSwitch from './ToggleSwitch.jsx';
+import { Link } from 'react-router';
 
 export default class PropertyCard extends React.Component {
   constructor() {
@@ -28,14 +29,13 @@ export default class PropertyCard extends React.Component {
     }
   }
 
-
   render() {
     let component;
     if (this.state.incomeView === 'true') {
       component = properties.map((property) => {
         return <div className='property-card' key={property.id}>
-        <img className='chart-img'
-          src='/lib/images/chart_line.png'></img>
+        <Link to='/detail'><img className='chart-img'
+          src='/lib/images/chart_line.png'></img></Link>
         <h2>{property.name}</h2>
         <h3>${property.monthToDate} mtd</h3>
       </div>;
@@ -45,7 +45,9 @@ export default class PropertyCard extends React.Component {
         properties.map((property) => {
           return <div className='property-card' key={property.id}>
             <img className='chart-img'
-              src='/lib/images/chart_line.png'></img>
+              src='/lib/images/chart_line.png'
+              >
+            </img>
             <h2>{property.name}</h2>
             <div>
               <h4>${property.currentPrincipal} Principal</h4>

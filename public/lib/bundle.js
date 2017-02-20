@@ -64,7 +64,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	__webpack_require__(584);
+	__webpack_require__(587);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24984,6 +24984,10 @@
 
 	var _Login2 = _interopRequireDefault(_Login);
 
+	var _AllPropertyContainer = __webpack_require__(584);
+
+	var _AllPropertyContainer2 = _interopRequireDefault(_AllPropertyContainer);
+
 	var _AuthService = __webpack_require__(219);
 
 	var _AuthService2 = _interopRequireDefault(_AuthService);
@@ -25011,7 +25015,8 @@
 	    { path: '/', component: _Container2.default, auth: auth },
 	    React.createElement(_reactRouter.IndexRoute, { component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
-	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default })
+	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
+	    React.createElement(_reactRouter.Route, { path: '/detail', component: _AllPropertyContainer2.default })
 	  );
 	};
 
@@ -76394,6 +76399,8 @@
 
 	var _ToggleSwitch2 = _interopRequireDefault(_ToggleSwitch);
 
+	var _reactRouter = __webpack_require__(159);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76445,8 +76452,12 @@
 	          return _react2.default.createElement(
 	            'div',
 	            { className: 'property-card', key: property.id },
-	            _react2.default.createElement('img', { className: 'chart-img',
-	              src: '/lib/images/chart_line.png' }),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/detail' },
+	              _react2.default.createElement('img', { className: 'chart-img',
+	                src: '/lib/images/chart_line.png' })
+	            ),
 	            _react2.default.createElement(
 	              'h2',
 	              null,
@@ -76466,6 +76477,9 @@
 	          return _react2.default.createElement(
 	            'div',
 	            { className: 'property-card', key: property.id },
+	            _react2.default.createElement('img', { className: 'chart-img',
+	              src: '/lib/images/chart_line.png'
+	            }),
 	            _react2.default.createElement(
 	              'h2',
 	              null,
@@ -76647,13 +76661,185 @@
 /* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _PropertyList = __webpack_require__(585);
+
+	var _PropertyList2 = _interopRequireDefault(_PropertyList);
+
+	var _PropertyDetailCard = __webpack_require__(586);
+
+	var _PropertyDetailCard2 = _interopRequireDefault(_PropertyDetailCard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AllPropertyContainer = function (_React$Component) {
+	  _inherits(AllPropertyContainer, _React$Component);
+
+	  function AllPropertyContainer() {
+	    _classCallCheck(this, AllPropertyContainer);
+
+	    return _possibleConstructorReturn(this, (AllPropertyContainer.__proto__ || Object.getPrototypeOf(AllPropertyContainer)).apply(this, arguments));
+	  }
+
+	  _createClass(AllPropertyContainer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_PropertyList2.default, null),
+	        _react2.default.createElement(_PropertyDetailCard2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return AllPropertyContainer;
+	}(_react2.default.Component);
+
+	exports.default = AllPropertyContainer;
+
+/***/ },
+/* 585 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _properties = __webpack_require__(582);
+
+	var _properties2 = _interopRequireDefault(_properties);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PropertyList = function (_React$Component) {
+	  _inherits(PropertyList, _React$Component);
+
+	  function PropertyList() {
+	    _classCallCheck(this, PropertyList);
+
+	    return _possibleConstructorReturn(this, (PropertyList.__proto__ || Object.getPrototypeOf(PropertyList)).apply(this, arguments));
+	  }
+
+	  _createClass(PropertyList, [{
+	    key: 'render',
+	    value: function render() {
+	      var propertyList = _properties2.default.map(function (property) {
+	        return _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            property.name
+	          )
+	        );
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        propertyList
+	      );
+	    }
+	  }]);
+
+	  return PropertyList;
+	}(_react2.default.Component);
+
+	exports.default = PropertyList;
+
+/***/ },
+/* 586 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PropertyDetailCard = function (_React$Component) {
+	  _inherits(PropertyDetailCard, _React$Component);
+
+	  function PropertyDetailCard() {
+	    _classCallCheck(this, PropertyDetailCard);
+
+	    return _possibleConstructorReturn(this, (PropertyDetailCard.__proto__ || Object.getPrototypeOf(PropertyDetailCard)).apply(this, arguments));
+	  }
+
+	  _createClass(PropertyDetailCard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Hello'
+	      );
+	    }
+	  }]);
+
+	  return PropertyDetailCard;
+	}(_react2.default.Component);
+
+	exports.default = PropertyDetailCard;
+
+/***/ },
+/* 587 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(585);
+	var content = __webpack_require__(588);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(587)(content, {});
+	var update = __webpack_require__(590)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -76670,10 +76856,10 @@
 	}
 
 /***/ },
-/* 585 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(586)();
+	exports = module.exports = __webpack_require__(589)();
 	// imports
 
 
@@ -76684,7 +76870,7 @@
 
 
 /***/ },
-/* 586 */
+/* 589 */
 /***/ function(module, exports) {
 
 	/*
@@ -76740,7 +76926,7 @@
 
 
 /***/ },
-/* 587 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
