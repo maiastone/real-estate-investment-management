@@ -45,3 +45,14 @@ h4 {
 .profile-info {
   width: 50%;
 }
+
+.chart-img {
+  height: 25px;
+  width: 25px;
+  position: relative;
+  margin-left: 90%;
+  margin-top: 2%;
+  &:hover {
+    cursor: pointer;
+  }
+}
