@@ -76411,10 +76411,30 @@
 	  function PropertyCard() {
 	    _classCallCheck(this, PropertyCard);
 
-	    return _possibleConstructorReturn(this, (PropertyCard.__proto__ || Object.getPrototypeOf(PropertyCard)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (PropertyCard.__proto__ || Object.getPrototypeOf(PropertyCard)).call(this));
+
+	    _this.state = {
+	      mode: 'income'
+	    };
+	    return _this;
 	  }
 
 	  _createClass(PropertyCard, [{
+	    key: 'toggleMode',
+	    value: function toggleMode(e) {
+	      debugger;
+	      e.preventDefault();
+	      if (this.state.mode === 'income') {
+	        this.setState({
+	          mode: 'debt'
+	        });
+	      } else {
+	        this.setState({
+	          mode: 'income'
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var propertyCard = _properties2.default.map(function (property) {
@@ -76432,7 +76452,20 @@
 	            '$',
 	            property.monthToDate,
 	            ' MTD'
-	          )
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            '$',
+	            property.currentPrincipal
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            '$',
+	            property.currentInterest
+	          ),
+	          ')'
 	        );
 	      });
 	      return _react2.default.createElement(
@@ -76441,7 +76474,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'property-container' },
-	          _react2.default.createElement(_ToggleSwitch2.default, null),
+	          _react2.default.createElement(_ToggleSwitch2.default, { toggleMode: this.toggleMode.bind(this) }),
 	          propertyCard
 	        )
 	      );
@@ -76481,79 +76514,63 @@
 /* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _PropertyCard = __webpack_require__(581);
+
+	var _PropertyCard2 = _interopRequireDefault(_PropertyCard);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var ToggleSwitch = function ToggleSwitch(props) {
+	  var toggleMode = props.toggleMode;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'switch-container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'switch' },
+	      _react2.default.createElement('input', { type: 'radio',
+	        className: 'switch-input',
+	        name: 'view',
+	        value: 'income',
+	        id: 'income',
+	        defaultChecked: true }),
+	      _react2.default.createElement(
+	        'label',
+	        { htmlFor: 'income',
+	          className: 'switch-label switch-label-off'
+	        },
+	        'Income'
+	      ),
+	      _react2.default.createElement('input', { type: 'radio',
+	        className: 'switch-input',
+	        name: 'view',
+	        value: 'debt',
+	        id: 'debt',
+	        onClick: function onClick(e) {
+	          return toggleMode(e);
+	        }
+	      }),
+	      _react2.default.createElement(
+	        'label',
+	        { htmlFor: 'debt',
+	          className: 'switch-label switch-label-on'
+	        },
+	        'Debt'
+	      ),
+	      _react2.default.createElement('span', { className: 'switch-selection' })
+	    )
+	  );
+	};
 
-	var ToggleSwitch = function (_React$Component) {
-	  _inherits(ToggleSwitch, _React$Component);
-
-	  function ToggleSwitch() {
-	    _classCallCheck(this, ToggleSwitch);
-
-	    return _possibleConstructorReturn(this, (ToggleSwitch.__proto__ || Object.getPrototypeOf(ToggleSwitch)).apply(this, arguments));
-	  }
-
-	  _createClass(ToggleSwitch, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "switch-container" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "switch" },
-	          _react2.default.createElement("input", { type: "radio",
-	            className: "switch-input",
-	            name: "view",
-	            value: "income",
-	            id: "income",
-	            defaultChecked: true }),
-	          _react2.default.createElement(
-	            "label",
-	            { htmlFor: "income",
-	              className: "switch-label switch-label-off"
-	            },
-	            "Income"
-	          ),
-	          _react2.default.createElement("input", { type: "radio",
-	            className: "switch-input",
-	            name: "view",
-	            value: "debt",
-	            id: "debt" }),
-	          _react2.default.createElement(
-	            "label",
-	            { htmlFor: "debt",
-	              className: "switch-label switch-label-on"
-	            },
-	            "Debt"
-	          ),
-	          _react2.default.createElement("span", { className: "switch-selection" })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return ToggleSwitch;
-	}(_react2.default.Component);
-
-	exports.default = ToggleSwitch;
+	module.exports = ToggleSwitch;
 
 /***/ },
 /* 584 */
