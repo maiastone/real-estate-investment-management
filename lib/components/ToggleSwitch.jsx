@@ -12,8 +12,9 @@ const ToggleSwitch = (props) => {
             name="view"
             value="income"
             id="income"
+            defaultChecked
             onClick={(e) => toggleModeIncome(e)}
-            defaultChecked>
+            >
           </input>
           <label htmlFor="income"
             className="switch-label switch-label-off"

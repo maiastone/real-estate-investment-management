@@ -49,7 +49,7 @@
   float: left;
   width: 60px;
   line-height: 32px;
-  font-size: 14px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.35);
   text-align: center;
   cursor: pointer;
@@ -71,7 +71,7 @@
   display: none;
 }
 
-.switch-input:checked + .switch-label {
+.switch-input:active + .switch-label {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.65);
   -webkit-transition: 0.15s ease-out;
@@ -80,7 +80,7 @@
   transition: 0.15s ease-out;
 }
 
-.switch-input:checked + .switch-label-on ~ .switch-selection {
+.switch-input:active + .switch-label-on ~ .switch-selection {
   left: 60px;
 }
 
