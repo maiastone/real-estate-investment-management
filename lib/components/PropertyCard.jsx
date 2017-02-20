@@ -10,35 +10,51 @@ export default class PropertyCard extends React.Component {
     };
   }
 
-  toggleMode(e) {
+  toggleModeIncome(e) {
     e.preventDefault();
-    if (this.state.incomeView === 'true') {
-      this.setState({
-        incomeView: 'false',
-      });
-    } else {
+    if (this.state.incomeView === 'false') {
       this.setState({
         incomeView: 'true',
       });
     }
   }
 
+  toggleModeDebt(e) {
+    e.preventDefault();
+    if (this.state.incomeView === 'true') {
+      this.setState({
+        incomeView: 'false',
+      });
+    }
+  }
+
+  //     properties.map((property) => {
+  //       return <div className='property-card' key={property.id}>
+  //         <h2>{property.name}</h2>
+  //         <div>
+  //           <h3>${property.currentPrincipal}</h3>
+  //           <h3>${property.currentInterest}</h3>
+  //         </div>
+  //       </div>; });
+  //   }
+  // }
+
   render() {
-    const propertyCard = properties.map((property) =>
-      <div className='property-card' key={property.id}>
+    const propertyIncomeCard = properties.map((property) => {
+      return <div className='property-card' key={property.id}>
         <h2>{property.name}</h2>
         <h3>${property.monthToDate} MTD</h3>
-        <h3>${property.currentPrincipal}</h3>
-        <h3>${property.currentInterest}</h3>)
-      </div>
-    );
+      </div>;
+    });
+
     return (
-      <div>
         <div className='property-container'>
-          <ToggleSwitch toggleMode={this.toggleMode.bind(this)}/>
-          {propertyCard}
+          <ToggleSwitch
+            toggleModeIncome={this.toggleModeIncome.bind(this)}
+            toggleModeDebt={this.toggleModeDebt.bind(this)}
+            />
+          {propertyIncomeCard}
         </div>
-      </div>
     );
   }
 }

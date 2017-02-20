@@ -76417,23 +76417,41 @@
 	  }
 
 	  _createClass(PropertyCard, [{
-	    key: 'toggleMode',
-	    value: function toggleMode(e) {
+	    key: 'toggleModeIncome',
+	    value: function toggleModeIncome(e) {
 	      e.preventDefault();
-	      if (this.state.incomeView === 'true') {
-	        this.setState({
-	          incomeView: 'false'
-	        });
-	      } else {
+	      if (this.state.incomeView === 'false') {
 	        this.setState({
 	          incomeView: 'true'
 	        });
 	      }
 	    }
 	  }, {
+	    key: 'toggleModeDebt',
+	    value: function toggleModeDebt(e) {
+	      e.preventDefault();
+	      if (this.state.incomeView === 'true') {
+	        this.setState({
+	          incomeView: 'false'
+	        });
+	      }
+	    }
+
+	    //     properties.map((property) => {
+	    //       return <div className='property-card' key={property.id}>
+	    //         <h2>{property.name}</h2>
+	    //         <div>
+	    //           <h3>${property.currentPrincipal}</h3>
+	    //           <h3>${property.currentInterest}</h3>
+	    //         </div>
+	    //       </div>; });
+	    //   }
+	    // }
+
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var propertyCard = _properties2.default.map(function (property) {
+	      var propertyIncomeCard = _properties2.default.map(function (property) {
 	        return _react2.default.createElement(
 	          'div',
 	          { className: 'property-card', key: property.id },
@@ -76448,31 +76466,18 @@
 	            '$',
 	            property.monthToDate,
 	            ' MTD'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            '$',
-	            property.currentPrincipal
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            '$',
-	            property.currentInterest
-	          ),
-	          ')'
+	          )
 	        );
 	      });
+
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'property-container' },
-	          _react2.default.createElement(_ToggleSwitch2.default, { toggleMode: this.toggleMode.bind(this) }),
-	          propertyCard
-	        )
+	        { className: 'property-container' },
+	        _react2.default.createElement(_ToggleSwitch2.default, {
+	          toggleModeIncome: this.toggleModeIncome.bind(this),
+	          toggleModeDebt: this.toggleModeDebt.bind(this)
+	        }),
+	        propertyIncomeCard
 	      );
 	    }
 	  }]);
@@ -76523,7 +76528,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ToggleSwitch = function ToggleSwitch(props) {
-	  var toggleMode = props.toggleMode;
+	  var toggleModeIncome = props.toggleModeIncome,
+	      toggleModeDebt = props.toggleModeDebt;
 
 
 	  return _react2.default.createElement(
@@ -76537,6 +76543,9 @@
 	        name: 'view',
 	        value: 'income',
 	        id: 'income',
+	        onClick: function onClick(e) {
+	          return toggleModeIncome(e);
+	        },
 	        defaultChecked: true }),
 	      _react2.default.createElement(
 	        'label',
@@ -76551,7 +76560,7 @@
 	        value: 'debt',
 	        id: 'debt',
 	        onClick: function onClick(e) {
-	          return toggleMode(e);
+	          return toggleModeDebt(e);
 	        }
 	      }),
 	      _react2.default.createElement(

@@ -2,7 +2,7 @@ import React from 'react';
 import PropertyCard from './PropertyCard.jsx';
 
 const ToggleSwitch = (props) => {
-  const { toggleMode } = props;
+  const { toggleModeIncome, toggleModeDebt } = props;
 
   return (
       <div className="switch-container">
@@ -12,6 +12,7 @@ const ToggleSwitch = (props) => {
             name="view"
             value="income"
             id="income"
+            onClick={(e) => toggleModeIncome(e)}
             defaultChecked>
           </input>
           <label htmlFor="income"
@@ -24,7 +25,7 @@ const ToggleSwitch = (props) => {
             name="view"
             value="debt"
             id="debt"
-            onClick={(e) => toggleMode(e)}
+            onClick={(e) => toggleModeDebt(e)}
             >
           </input>
           <label htmlFor="debt"
