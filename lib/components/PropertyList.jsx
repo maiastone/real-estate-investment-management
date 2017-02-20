@@ -6,7 +6,13 @@ export default class PropertyList extends React.Component {
 
   render() {
     const propertyList = properties.map((property) => {
-      return <ul><li>{property.name}</li></ul>;
+      return <ul>
+                <li key={property.id}
+                  className='property-list'
+                >
+                {property.name}
+                </li>
+            </ul>;
     });
 
     return (

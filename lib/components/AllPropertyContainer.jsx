@@ -7,8 +7,11 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <PropertyList />
-        <PropertyDetailCard />
+        <h2 id='site-title'>Real Estate Dashboard</h2>
+        <div className='detail-view'>
+          <PropertyList />
+          <PropertyDetailCard />
+        </div>
       </div>
     );
   }

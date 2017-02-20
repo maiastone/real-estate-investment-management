@@ -7,5 +7,4 @@ export default class PropertyDetailCard extends React.Component {
       <div>Hello</div>
     );
   }
-
 }

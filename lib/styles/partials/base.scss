@@ -42,6 +42,16 @@ h4 {
   }
 }
 
+.property-list {
+  height: 50px;
+  width: 125px;
+  margin-right: 25px;
+  background-color: #fff;
+  border: .5px inset black;
+  font-size: 24px;
+  padding: 6%;
+}
+
 .profile-info {
   width: 50%;
 }
@@ -55,4 +65,9 @@ h4 {
   &:hover {
     cursor: pointer;
   }
+}
+
+.detail-view {
+  display: flex;
+  justify-content: flex-start;
 }
