@@ -30,14 +30,14 @@ export class Home extends React.Component {
   render() {
     const { profile } = this.state;
     return (
-      <header className='header'>
+      <div>
         <Header />
         <div className='profile-header'>
           <ProfileDetails profile={profile}></ProfileDetails>
           <button id='logout' onClick={this.logout.bind(this)}>Logout</button>
         </div>
         <PropertyContainer />
-      </header>
+      </div>
     );
   }
 }

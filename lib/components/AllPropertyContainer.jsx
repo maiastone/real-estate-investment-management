@@ -9,12 +9,13 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <header>
+          <Header />
+          <ToggleSwitch />
+        </header>
         <div className='detail-view'>
           <PropertyList />
           <PropertyDetailCard />
-          <ToggleSwitch />
-          <LoanGraph />
         </div>
       </div>
     );

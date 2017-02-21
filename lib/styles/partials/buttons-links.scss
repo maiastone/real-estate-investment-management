@@ -4,6 +4,7 @@
   background: none;
   border: 1px solid gray;
   border-radius: 5px;
+  margin: 1% 0 0 5%;
   &:hover {
     color: white;
     background-color: black;
@@ -31,6 +32,8 @@
 
 .switch-container {
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .switch {
