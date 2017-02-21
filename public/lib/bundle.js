@@ -76763,7 +76763,8 @@
 	    _this.state = {
 	      incomeView: true,
 	      incomeBgColor: 'white',
-	      debtBgColor: 'gray'
+	      debtBgColor: 'gray',
+	      propertyID: 1
 	    };
 	    return _this;
 	  }
@@ -76793,6 +76794,13 @@
 	      }
 	    }
 	  }, {
+	    key: 'setProperty',
+	    value: function setProperty(id) {
+	      this.setState({
+	        propertyID: id
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -76812,8 +76820,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'detail-view' },
-	          _react2.default.createElement(_PropertyList2.default, null),
-	          _react2.default.createElement(_PropertyDetailCard2.default, null)
+	          _react2.default.createElement(_PropertyList2.default, {
+	            setProperty: this.setProperty.bind(this)
+	          }),
+	          _react2.default.createElement(_PropertyDetailCard2.default, {
+	            propertyID: this.state.propertyID
+	          })
 	        )
 	      );
 	    }
@@ -76844,6 +76856,10 @@
 
 	var _properties2 = _interopRequireDefault(_properties);
 
+	var _AllPropertyContainer = __webpack_require__(585);
+
+	var _AllPropertyContainer2 = _interopRequireDefault(_AllPropertyContainer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76864,6 +76880,7 @@
 	  _createClass(PropertyList, [{
 	    key: 'render',
 	    value: function render() {
+	      var setProperty = this.props.setProperty;
 	      var propertyList = _properties2.default.map(function (property) {
 	        return _react2.default.createElement(
 	          'ul',
@@ -76871,7 +76888,10 @@
 	          _react2.default.createElement(
 	            'li',
 	            { key: property.id,
-	              className: 'property-list'
+	              className: 'property-list',
+	              onClick: function onClick() {
+	                return setProperty(property.id);
+	              }
 	            },
 	            property.name
 	          )
@@ -76907,6 +76927,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _AllPropertyContainer = __webpack_require__(585);
+
+	var _AllPropertyContainer2 = _interopRequireDefault(_AllPropertyContainer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76927,10 +76951,12 @@
 	  _createClass(PropertyDetailCard, [{
 	    key: 'render',
 	    value: function render() {
+	      var propertyID = this.props.propertyID;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'graph-container' },
-	        'Hello'
+	        propertyID
 	      );
 	    }
 	  }]);

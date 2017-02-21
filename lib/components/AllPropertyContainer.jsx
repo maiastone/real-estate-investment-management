@@ -11,6 +11,7 @@ export default class AllPropertyContainer extends React.Component {
       incomeView: true,
       incomeBgColor: 'white',
       debtBgColor: 'gray',
+      propertyID: 1,
     };
   }
   toggleModeIncome(e) {
@@ -35,6 +36,12 @@ export default class AllPropertyContainer extends React.Component {
     }
   }
 
+  setProperty(id) {
+    this.setState({
+      propertyID: id,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -48,8 +55,12 @@ export default class AllPropertyContainer extends React.Component {
             toggleModeDebt={this.toggleModeDebt.bind(this)}
           />
         <div className='detail-view'>
-          <PropertyList />
-          <PropertyDetailCard />
+          <PropertyList
+            setProperty={this.setProperty.bind(this)}
+          />
+          <PropertyDetailCard
+            propertyID={this.state.propertyID}
+          />
         </div>
       </div>
     );
