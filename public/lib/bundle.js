@@ -25016,7 +25016,8 @@
 	    React.createElement(_reactRouter.IndexRoute, { component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
-	    React.createElement(_reactRouter.Route, { path: '/detail', component: _AllPropertyContainer2.default })
+	    React.createElement(_reactRouter.Route, { path: '/detail', component: _AllPropertyContainer2.default }),
+	    React.createElement(_reactRouter.Route, { path: '/detail/:id', component: _AllPropertyContainer2.default })
 	  );
 	};
 
@@ -76518,7 +76519,8 @@
 	            { className: 'property-card', key: property.id },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/detail' },
+	              { to: '/detail/' + property.id
+	              },
 	              _react2.default.createElement('img', { className: 'chart-img',
 	                src: '/lib/images/chart_line.png' })
 	            ),
@@ -76794,15 +76796,9 @@
 	      }
 	    }
 	  }, {
-	    key: 'setProperty',
-	    value: function setProperty(id) {
-	      this.setState({
-	        propertyID: id
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -76820,11 +76816,9 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'detail-view' },
-	          _react2.default.createElement(_PropertyList2.default, {
-	            setProperty: this.setProperty.bind(this)
-	          }),
+	          _react2.default.createElement(_PropertyList2.default, null),
 	          _react2.default.createElement(_PropertyDetailCard2.default, {
-	            propertyID: this.state.propertyID
+	            propertyID: this.props.params.id
 	          })
 	        )
 	      );
@@ -76860,6 +76854,8 @@
 
 	var _AllPropertyContainer2 = _interopRequireDefault(_AllPropertyContainer);
 
+	var _reactRouter = __webpack_require__(159);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76886,14 +76882,15 @@
 	          'ul',
 	          null,
 	          _react2.default.createElement(
-	            'li',
-	            { key: property.id,
-	              className: 'property-list',
-	              onClick: function onClick() {
-	                return setProperty(property.id);
-	              }
-	            },
-	            property.name
+	            _reactRouter.Link,
+	            { to: '/detail/' + property.id },
+	            _react2.default.createElement(
+	              'li',
+	              { key: property.id,
+	                className: 'property-list'
+	              },
+	              property.name
+	            )
 	          )
 	        );
 	      });

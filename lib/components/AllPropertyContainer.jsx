@@ -14,6 +14,7 @@ export default class AllPropertyContainer extends React.Component {
       propertyID: 1,
     };
   }
+
   toggleModeIncome(e) {
     e.preventDefault();
     if (this.state.incomeView === false) {
@@ -36,13 +37,9 @@ export default class AllPropertyContainer extends React.Component {
     }
   }
 
-  setProperty(id) {
-    this.setState({
-      propertyID: id,
-    });
-  }
 
   render() {
+
     return (
       <div>
         <header>
@@ -56,10 +53,10 @@ export default class AllPropertyContainer extends React.Component {
           />
         <div className='detail-view'>
           <PropertyList
-            setProperty={this.setProperty.bind(this)}
+
           />
           <PropertyDetailCard
-            propertyID={this.state.propertyID}
+            propertyID={this.props.params.id}
           />
         </div>
       </div>
