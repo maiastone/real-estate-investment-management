@@ -2,40 +2,25 @@ import React from 'react';
 import PropertyCard from './PropertyCard.jsx';
 
 const ToggleSwitch = (props) => {
-  const { toggleModeIncome, toggleModeDebt } = props;
+  const { toggleModeIncome, toggleModeDebt, incomeBgColor, debtBgColor } = props;
 
   return (
       <div className="switch-container">
-        <div className="switch">
-          <input type="radio"
-            className="switch-input"
-            name="view"
-            value="income"
-            id="income"
-            defaultChecked
+
+          <button
+            className="switch-button"
+            style={{backgroundColor: incomeBgColor}}
             onClick={(e) => toggleModeIncome(e)}
-            >
-          </input>
-          <label htmlFor="income"
-            className="switch-label switch-label-off"
             >Income
-          </label>
+          </button>
 
-          <input type="radio"
-            className="switch-input"
-            name="view"
-            value="debt"
-            id="debt"
+          <button
+            className="switch-button"
+            style={{backgroundColor: debtBgColor}}
             onClick={(e) => toggleModeDebt(e)}
-            >
-          </input>
-          <label htmlFor="debt"
-            className="switch-label switch-label-on"
             >Debt
-          </label>
+          </button>
 
-          <span className="switch-selection"></span>
-        </div>
       </div>
   );
 };

@@ -25,17 +25,15 @@ if (process.env.NODE_ENV || 'production') {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/home', (request, response) => {
+
+app.get('/404', (request, response) => {
+  response.sendFile(__dirname + '/public/not_found.html')
+});
+
+app.get('/*', (request, response) => {
   response.sendFile(__dirname + '/public/index.html')
 });
 
-app.get('/login', (request, response) => {
-  response.sendFile(__dirname + '/public/index.html')
-});
-
-app.get('/detail', (request, response) => {
-  response.sendFile(__dirname + '/public/index.html')
-});
 
 const server = http.createServer(app)
   .listen(port, () => {

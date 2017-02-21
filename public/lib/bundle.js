@@ -76476,7 +76476,9 @@
 	    var _this = _possibleConstructorReturn(this, (PropertyCard.__proto__ || Object.getPrototypeOf(PropertyCard)).call(this));
 
 	    _this.state = {
-	      incomeView: 'true'
+	      incomeView: true,
+	      incomeBgColor: 'white',
+	      debtBgColor: 'gray'
 	    };
 	    return _this;
 	  }
@@ -76485,9 +76487,11 @@
 	    key: 'toggleModeIncome',
 	    value: function toggleModeIncome(e) {
 	      e.preventDefault();
-	      if (this.state.incomeView === 'false') {
+	      if (this.state.incomeView === false) {
 	        this.setState({
-	          incomeView: 'true'
+	          incomeView: true,
+	          incomeBgColor: 'white',
+	          debtBgColor: 'gray'
 	        });
 	      }
 	    }
@@ -76495,9 +76499,11 @@
 	    key: 'toggleModeDebt',
 	    value: function toggleModeDebt(e) {
 	      e.preventDefault();
-	      if (this.state.incomeView === 'true') {
+	      if (this.state.incomeView === true) {
 	        this.setState({
-	          incomeView: 'false'
+	          incomeView: false,
+	          incomeBgColor: 'gray',
+	          debtBgColor: 'white'
 	        });
 	      }
 	    }
@@ -76505,7 +76511,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var component = void 0;
-	      if (this.state.incomeView === 'true') {
+	      if (this.state.incomeView === true) {
 	        component = _properties2.default.map(function (property) {
 	          return _react2.default.createElement(
 	            'div',
@@ -76572,6 +76578,8 @@
 	        'div',
 	        { className: 'property-container' },
 	        _react2.default.createElement(_ToggleSwitch2.default, {
+	          incomeBgColor: this.state.incomeBgColor,
+	          debtBgColor: this.state.debtBgColor,
 	          toggleModeIncome: this.toggleModeIncome.bind(this),
 	          toggleModeDebt: this.toggleModeDebt.bind(this)
 	        }),
@@ -76669,49 +76677,35 @@
 
 	var ToggleSwitch = function ToggleSwitch(props) {
 	  var toggleModeIncome = props.toggleModeIncome,
-	      toggleModeDebt = props.toggleModeDebt;
+	      toggleModeDebt = props.toggleModeDebt,
+	      incomeBgColor = props.incomeBgColor,
+	      debtBgColor = props.debtBgColor;
 
 
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'switch-container' },
 	    _react2.default.createElement(
-	      'div',
-	      { className: 'switch' },
-	      _react2.default.createElement('input', { type: 'radio',
-	        className: 'switch-input',
-	        name: 'view',
-	        value: 'income',
-	        id: 'income',
-	        defaultChecked: true,
+	      'button',
+	      {
+	        className: 'switch-button',
+	        style: { backgroundColor: incomeBgColor },
 	        onClick: function onClick(e) {
 	          return toggleModeIncome(e);
 	        }
-	      }),
-	      _react2.default.createElement(
-	        'label',
-	        { htmlFor: 'income',
-	          className: 'switch-label switch-label-off'
-	        },
-	        'Income'
-	      ),
-	      _react2.default.createElement('input', { type: 'radio',
-	        className: 'switch-input',
-	        name: 'view',
-	        value: 'debt',
-	        id: 'debt',
+	      },
+	      'Income'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      {
+	        className: 'switch-button',
+	        style: { backgroundColor: debtBgColor },
 	        onClick: function onClick(e) {
 	          return toggleModeDebt(e);
 	        }
-	      }),
-	      _react2.default.createElement(
-	        'label',
-	        { htmlFor: 'debt',
-	          className: 'switch-label switch-label-on'
-	        },
-	        'Debt'
-	      ),
-	      _react2.default.createElement('span', { className: 'switch-selection' })
+	      },
+	      'Debt'
 	    )
 	  );
 	};
@@ -76764,10 +76758,41 @@
 	  function AllPropertyContainer() {
 	    _classCallCheck(this, AllPropertyContainer);
 
-	    return _possibleConstructorReturn(this, (AllPropertyContainer.__proto__ || Object.getPrototypeOf(AllPropertyContainer)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (AllPropertyContainer.__proto__ || Object.getPrototypeOf(AllPropertyContainer)).call(this));
+
+	    _this.state = {
+	      incomeView: true,
+	      incomeBgColor: 'white',
+	      debtBgColor: 'gray'
+	    };
+	    return _this;
 	  }
 
 	  _createClass(AllPropertyContainer, [{
+	    key: 'toggleModeIncome',
+	    value: function toggleModeIncome(e) {
+	      e.preventDefault();
+	      if (this.state.incomeView === false) {
+	        this.setState({
+	          incomeView: true,
+	          incomeBgColor: 'white',
+	          debtBgColor: 'gray'
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'toggleModeDebt',
+	    value: function toggleModeDebt(e) {
+	      e.preventDefault();
+	      if (this.state.incomeView === true) {
+	        this.setState({
+	          incomeView: false,
+	          incomeBgColor: 'gray',
+	          debtBgColor: 'white'
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -76776,9 +76801,14 @@
 	        _react2.default.createElement(
 	          'header',
 	          null,
-	          _react2.default.createElement(_Header2.default, null),
-	          _react2.default.createElement(_ToggleSwitch2.default, null)
+	          _react2.default.createElement(_Header2.default, null)
 	        ),
+	        _react2.default.createElement(_ToggleSwitch2.default, {
+	          incomeBgColor: this.state.incomeBgColor,
+	          debtBgColor: this.state.debtBgColor,
+	          toggleModeIncome: this.toggleModeIncome.bind(this),
+	          toggleModeDebt: this.toggleModeDebt.bind(this)
+	        }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'detail-view' },
@@ -76945,7 +76975,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f4f4f4;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 2em;\n  text-transform: uppercase;\n  color: #691B8D; }\n\nh4 {\n  font-size: 30px;\n  padding: 1%;\n  text-align: center; }\n\n#site-title {\n  font-family: \"Marcellus SC\", serif;\n  padding: 2% 0% 2% 2%;\n  font-size: 3em;\n  background-color: #BADA55;\n  z-index: 999;\n  color: black; }\n\n.header {\n  border-bottom: 1px inset gray; }\n\n.profile-header {\n  z-index: 999;\n  padding-top: 10px; }\n  .profile-header h3 {\n    padding-left: 5%; }\n\n.property-list {\n  width: 125px;\n  margin-right: 25px;\n  border: .5px inset black;\n  font-size: 24px;\n  padding: 7%;\n  border-radius: 5px;\n  margin: 5px; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 88%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.detail-view {\n  display: flex;\n  justify-content: flex-start; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n.graph-container {\n  margin: 5px 0 0 3%; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px;\n  margin: 1% 0 0 5%; }\n  #logout:hover {\n    color: white;\n    background-color: black; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n.switch-container {\n  width: 100%;\n  display: flex;\n  justify-content: flex-end; }\n\n.switch {\n  position: relative;\n  margin: 20px auto;\n  height: 30px;\n  width: 126px;\n  background: rgba(0, 0, 0, 0.25);\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1); }\n\n.switch-label {\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 60px;\n  line-height: 32px;\n  font-size: 18px;\n  color: rgba(255, 255, 255, 0.35);\n  text-align: center;\n  cursor: pointer; }\n\n.switch-label:active {\n  font-weight: bold; }\n\n.switch-label-off {\n  padding-left: 2px; }\n\n.switch-label-on {\n  padding-right: 2px; }\n\n.switch-input {\n  display: none; }\n\n.switch-input:active + .switch-label {\n  font-weight: bold;\n  color: rgba(0, 0, 0, 0.65);\n  -webkit-transition: 0.15s ease-out;\n  -moz-transition: 0.15s ease-out;\n  -o-transition: 0.15s ease-out;\n  transition: 0.15s ease-out; }\n\n.switch-input:active + .switch-label-on ~ .switch-selection {\n  left: 60px; }\n\n.switch-selection {\n  display: block;\n  position: absolute;\n  z-index: 1;\n  top: 1px;\n  left: 1px;\n  width: 65px;\n  height: 28px;\n  background: #ffffff;\n  border-radius: 3px;\n  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);\n  -webkit-transition: left 0.15s ease-out;\n  -moz-transition: left 0.15s ease-out;\n  -o-transition: left 0.15s ease-out;\n  transition: left 0.15s ease-out; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2, .property-card h3 {\n    text-align: center;\n    font-size: 2em;\n    padding: 8%; }\n\n.graph-container {\n  width: 600px;\n  height: 400px;\n  background-color: lightgray; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 5%; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f4f4f4;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 2em;\n  text-transform: uppercase;\n  color: #691B8D; }\n\nh4 {\n  font-size: 30px;\n  padding: 1%;\n  text-align: center; }\n\n#site-title {\n  font-family: \"Marcellus SC\", serif;\n  padding: 2% 0% 2% 2%;\n  font-size: 3em;\n  background-color: #BADA55;\n  z-index: 999;\n  color: black; }\n\n.header {\n  border-bottom: 1px inset gray; }\n\n.profile-header {\n  z-index: 999;\n  padding-top: 10px; }\n  .profile-header h3 {\n    padding-left: 5%; }\n\n.property-list {\n  width: 125px;\n  margin-right: 25px;\n  border: .5px inset black;\n  font-size: 24px;\n  padding: 7%;\n  border-radius: 5px;\n  margin: 5px; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 88%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.detail-view {\n  display: flex;\n  justify-content: flex-start; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n.graph-container {\n  margin: 5px 0 0 3%; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px;\n  margin: 1% 0 0 5%; }\n  #logout:hover {\n    color: white;\n    background-color: black; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid gray;\n  border-radius: 5px; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n.switch-container {\n  width: 95%;\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 3%;\n  margin-bottom: 3%; }\n\n.switch-button {\n  font-weight: bold;\n  height: 30px;\n  width: 60px;\n  border: 1px solid gray;\n  color: rgba(0, 0, 0, 0.65);\n  -webkit-transition: 0.15s ease-out;\n  -moz-transition: 0.15s ease-out;\n  -o-transition: 0.15s ease-out;\n  transition: 0.15s ease-out; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2, .property-card h3 {\n    text-align: center;\n    font-size: 2em;\n    padding: 8%; }\n\n.graph-container {\n  width: 600px;\n  height: 400px;\n  background-color: lightgray; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 5%; } }\n", ""]);
 
 	// exports
 

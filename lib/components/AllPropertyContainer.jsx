@@ -5,14 +5,48 @@ import ToggleSwitch from './ToggleSwitch.jsx';
 import PropertyDetailCard from './PropertyDetailCard.jsx';
 
 export default class AllPropertyContainer extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      incomeView: true,
+      incomeBgColor: 'white',
+      debtBgColor: 'gray',
+    };
+  }
+  toggleModeIncome(e) {
+    e.preventDefault();
+    if (this.state.incomeView === false) {
+      this.setState({
+        incomeView: true,
+        incomeBgColor: 'white',
+        debtBgColor: 'gray',
+      });
+    }
+  }
+
+  toggleModeDebt(e) {
+    e.preventDefault();
+    if (this.state.incomeView === true) {
+      this.setState({
+        incomeView: false,
+        incomeBgColor: 'gray',
+        debtBgColor: 'white',
+      });
+    }
+  }
 
   render() {
     return (
       <div>
         <header>
           <Header />
-          <ToggleSwitch />
         </header>
+          <ToggleSwitch
+            incomeBgColor={this.state.incomeBgColor}
+            debtBgColor={this.state.debtBgColor}
+            toggleModeIncome={this.toggleModeIncome.bind(this)}
+            toggleModeDebt={this.toggleModeDebt.bind(this)}
+          />
         <div className='detail-view'>
           <PropertyList />
           <PropertyDetailCard />

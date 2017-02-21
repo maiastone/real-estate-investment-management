@@ -7,31 +7,37 @@ export default class PropertyCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      incomeView: 'true',
+      incomeView: true,
+      incomeBgColor: 'white',
+      debtBgColor: 'gray',
     };
   }
 
   toggleModeIncome(e) {
     e.preventDefault();
-    if (this.state.incomeView === 'false') {
+    if (this.state.incomeView === false) {
       this.setState({
-        incomeView: 'true',
+        incomeView: true,
+        incomeBgColor: 'white',
+        debtBgColor: 'gray',
       });
     }
   }
 
   toggleModeDebt(e) {
     e.preventDefault();
-    if (this.state.incomeView === 'true') {
+    if (this.state.incomeView === true) {
       this.setState({
-        incomeView: 'false',
+        incomeView: false,
+        incomeBgColor: 'gray',
+        debtBgColor: 'white',
       });
     }
   }
 
   render() {
     let component;
-    if (this.state.incomeView === 'true') {
+    if (this.state.incomeView === true) {
       component = properties.map((property) => {
         return <div className='property-card' key={property.id}>
         <Link to='/detail'><img className='chart-img'
@@ -57,9 +63,11 @@ export default class PropertyCard extends React.Component {
     return (
         <div className='property-container'>
           <ToggleSwitch
+            incomeBgColor={this.state.incomeBgColor}
+            debtBgColor={this.state.debtBgColor}
             toggleModeIncome={this.toggleModeIncome.bind(this)}
             toggleModeDebt={this.toggleModeDebt.bind(this)}
-            />
+          />
           {component}
         </div>
     );
