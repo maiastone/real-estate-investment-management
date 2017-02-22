@@ -1,24 +1,27 @@
+const path = require('path');
+
+
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './lib/index.js'],
-    test: ['babel-polyfill', 'mocha!./test/index.js'],
+    main: './lib/index.js',
   },
   output: {
-    path: __dirname,
-    filename: '[name].bundle.js',
+    path: path.join(__dirname, '/public'),
+    filename: '/lib/bundle.js',
+    publicPath: '/home/'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react'],
+          presets: ['es2015', 'react', 'stage-0'],
         },
       },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.scss$/, loader: 'style!css!sass', include: path.join(__dirname, 'lib', 'styles') },
     ],
   },
   resolve: {
