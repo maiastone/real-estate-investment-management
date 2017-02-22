@@ -7,7 +7,6 @@ export default class PropertyList extends React.Component {
 
 
   render() {
-    const setProperty = this.props.setProperty;
     const propertyList = properties.map((property) => {
       return <ul>
         <Link to={'/detail/'+property.id }>

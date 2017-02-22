@@ -45,16 +45,14 @@ export default class AllPropertyContainer extends React.Component {
         <header>
           <Header />
         </header>
-          <ToggleSwitch
-            incomeBgColor={this.state.incomeBgColor}
-            debtBgColor={this.state.debtBgColor}
-            toggleModeIncome={this.toggleModeIncome.bind(this)}
-            toggleModeDebt={this.toggleModeDebt.bind(this)}
-          />
+        <ToggleSwitch
+          incomeBgColor={this.state.incomeBgColor}
+          debtBgColor={this.state.debtBgColor}
+          toggleModeIncome={this.toggleModeIncome.bind(this)}
+          toggleModeDebt={this.toggleModeDebt.bind(this)}
+        />
         <div className='detail-view'>
-          <PropertyList
-
-          />
+          <PropertyList />
           <PropertyDetailCard
             propertyID={this.props.params.id}
           />

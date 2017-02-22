@@ -7,13 +7,22 @@ body {
 h2 {
   font-size: 2em;
   text-transform: uppercase;
-  color: #691B8D;
+  color: $highlight-color;
 }
 
 h4 {
   font-size: 30px;
   padding: 1%;
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: $highlight-color;
+    text-transform: uppercase;
+  }
 }
 
 #site-title {
@@ -24,9 +33,11 @@ h4 {
   z-index: 999;
   color: black;
 }
+
 .header {
   border-bottom: 1px inset gray;
 }
+
 .profile-header {
   z-index: 999;
   padding-top: 10px;
@@ -39,10 +50,11 @@ h4 {
   width: 125px;
   margin-right: 25px;
   border: .5px inset black;
-  font-size: 24px;
+  font-size: 22px;
   padding: 7%;
   border-radius: 5px;
   margin: 5px;
+  text-decoration: none;
 }
 
 
