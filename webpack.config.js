@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/public'),
     filename: '/lib/bundle.js',
-    publicPath: '/'
+    publicPath: '/home/'
   },
   module: {
     loaders: [
@@ -17,7 +17,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react'],
+          presets: ['es2015', 'react', 'stage-0'],
         },
       },
       { test: /\.css$/, loader: 'style!css' },

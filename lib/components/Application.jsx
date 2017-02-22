@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Router } from 'react-router';
 
 class Application extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+  static contextTypes = {
+    router: PropTypes.object,
+  }
 
-    };
+  static propTypes = {
+    history: PropTypes.object.isRequired,
+    routes: PropTypes.element.isRequired,
+  };
+
+  get content() {
+    return (
+      <Router
+        routes={this.props.routes}
+        history={this.props.history} />
+    );
   }
 
   render() {
     return (
-      <div>
-        <h2>Hello Other World</h2>
-      </div>
-    );
+     <div style={{ height: '100%' }}>
+       {this.content}
+     </div>
+   );
   }
 }
-module.exports = Application;
+
+export default Application;
