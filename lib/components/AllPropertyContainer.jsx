@@ -3,6 +3,7 @@ import PropertyList from './PropertyList.jsx';
 import Header from './Header.jsx';
 import ToggleSwitch from './ToggleSwitch.jsx';
 import PropertyDetailCard from './PropertyDetailCard.jsx';
+import { Link } from 'react-router';
 
 export default class AllPropertyContainer extends React.Component {
   constructor() {
@@ -39,7 +40,6 @@ export default class AllPropertyContainer extends React.Component {
 
 
   render() {
-
     return (
       <div>
         <header>
@@ -51,6 +51,9 @@ export default class AllPropertyContainer extends React.Component {
           toggleModeIncome={this.toggleModeIncome.bind(this)}
           toggleModeDebt={this.toggleModeDebt.bind(this)}
         />
+        <Link to='/home'>
+          <button id='home'>Property Overview</button>
+        </Link>
         <div className='detail-view'>
           <PropertyList />
           <PropertyDetailCard

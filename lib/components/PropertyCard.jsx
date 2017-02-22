@@ -2,6 +2,7 @@ import React from 'react';
 import properties from '../properties.js';
 import ToggleSwitch from './ToggleSwitch.jsx';
 import { Link } from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class PropertyCard extends React.Component {
   constructor() {
@@ -73,7 +74,7 @@ export default class PropertyCard extends React.Component {
             toggleModeIncome={this.toggleModeIncome.bind(this)}
             toggleModeDebt={this.toggleModeDebt.bind(this)}
           />
-          {component}
+            {component}
         </div>
     );
   }
