@@ -15,7 +15,7 @@ export default class Victory extends React.Component {
     const propertyID = this.props.propertyID;
     console.log(propertyID);
 
-    const propertyData = rentalIncome[propertyID - 1].rentalIncome1;
+    const propertyData = rentalIncome[propertyID - 1].rentalIncome;
     console.log(propertyData);
 
     const data1 = rentalIncome2;
