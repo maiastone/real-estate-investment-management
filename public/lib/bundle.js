@@ -79982,6 +79982,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import rentalIncome1 from '../income/rentalIncome1.js'
+
 
 	var Victory = function (_React$Component) {
 	  _inherits(Victory, _React$Component);
@@ -79995,8 +79997,16 @@
 	  _createClass(Victory, [{
 	    key: 'render',
 	    value: function render() {
+	      console.log(_rentalIncome2.default);
+
 	      var propertyID = this.props.propertyID;
-	      var data1 = _rentalIncome2.default;
+	      console.log(propertyID);
+
+	      var propertyData = _rentalIncome2.default[propertyID - 1].rentalIncome1;
+	      console.log(propertyData);
+
+	      var data1 = _rentalIncome4.default;
+	      var data2 = _rentalIncome4.default;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -80016,7 +80026,7 @@
 	            }
 	          }),
 	          _react2.default.createElement(_victory.VictoryBar, {
-	            data: data1,
+	            data: propertyData,
 	            x: 'month',
 	            y: 'rentalIncome'
 	          })
@@ -115329,9 +115339,9 @@
 
 	'use strict';
 
-	var rentalIncome1 = [{ month: 'January', rentalIncome: 1300 }, { month: 'February', rentalIncome: 1650 }, { month: 'March', rentalIncome: 1425 }, { month: 'April', rentalIncome: 1900 }, { month: 'May', rentalIncome: 1900 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }];
+	var rentalIncome = [{ rentalIncome1: [{ month: 'January', rentalIncome: 1300 }, { month: 'February', rentalIncome: 1650 }, { month: 'March', rentalIncome: 1425 }, { month: 'April', rentalIncome: 1900 }, { month: 'May', rentalIncome: 1900 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }] }, { rentalIncome2: [{ month: 'January', rentalIncome: 0 }, { month: 'February', rentalIncome: 1100 }, { month: 'March', rentalIncome: 1110 }, { month: 'April', rentalIncome: 1200 }, { month: 'May', rentalIncome: 1200 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }] }];
 
-	module.exports = rentalIncome1;
+	module.exports = rentalIncome;
 
 /***/ },
 /* 1024 */
