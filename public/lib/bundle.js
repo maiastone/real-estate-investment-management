@@ -64,7 +64,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	__webpack_require__(1024);
+	__webpack_require__(1025);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -79929,11 +79929,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var propertyID = this.props.propertyID;
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'graph-container' },
-	        _react2.default.createElement(_Victory2.default, null),
+	        _react2.default.createElement(_Victory2.default, {
+	          propertyID: propertyID
+	        }),
 	        propertyID
 	      );
 	    }
@@ -79968,6 +79969,10 @@
 
 	var _rentalIncome2 = _interopRequireDefault(_rentalIncome);
 
+	var _rentalIncome3 = __webpack_require__(1024);
+
+	var _rentalIncome4 = _interopRequireDefault(_rentalIncome3);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -79990,6 +79995,8 @@
 	  _createClass(Victory, [{
 	    key: 'render',
 	    value: function render() {
+	      var propertyID = this.props.propertyID;
+	      var data1 = _rentalIncome2.default;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -80009,7 +80016,7 @@
 	            }
 	          }),
 	          _react2.default.createElement(_victory.VictoryBar, {
-	            data: _rentalIncome2.default,
+	            data: data1,
 	            x: 'month',
 	            y: 'rentalIncome'
 	          })
@@ -115322,21 +115329,31 @@
 
 	'use strict';
 
-	var rentalIncome = [{ month: 'January', rentalIncome: 1300 }, { month: 'February', rentalIncome: 1650 }, { month: 'March', rentalIncome: 1425 }, { month: 'April', rentalIncome: 1900 }, { month: 'May', rentalIncome: 1900 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }];
+	var rentalIncome1 = [{ month: 'January', rentalIncome: 1300 }, { month: 'February', rentalIncome: 1650 }, { month: 'March', rentalIncome: 1425 }, { month: 'April', rentalIncome: 1900 }, { month: 'May', rentalIncome: 1900 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }];
 
-	module.exports = rentalIncome;
+	module.exports = rentalIncome1;
 
 /***/ },
 /* 1024 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var rentalIncome2 = [{ month: 'January', rentalIncome: 0 }, { month: 'February', rentalIncome: 1100 }, { month: 'March', rentalIncome: 1110 }, { month: 'April', rentalIncome: 1200 }, { month: 'May', rentalIncome: 1200 }, { month: 'June', rentalIncome: 0 }, { month: 'July', rentalIncome: 0 }, { month: 'August', rentalIncome: 0 }, { month: 'September', rentalIncome: 0 }, { month: 'October', rentalIncome: 0 }, { month: 'November', rentalIncome: 0 }, { month: 'December', rentalIncome: 0 }];
+
+	module.exports = rentalIncome2;
+
+/***/ },
+/* 1025 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(1025);
+	var content = __webpack_require__(1026);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(1027)(content, {});
+	var update = __webpack_require__(1028)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -115353,10 +115370,10 @@
 	}
 
 /***/ },
-/* 1025 */
+/* 1026 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(1026)();
+	exports = module.exports = __webpack_require__(1027)();
 	// imports
 
 
@@ -115367,7 +115384,7 @@
 
 
 /***/ },
-/* 1026 */
+/* 1027 */
 /***/ function(module, exports) {
 
 	/*
@@ -115423,7 +115440,7 @@
 
 
 /***/ },
-/* 1027 */
+/* 1028 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

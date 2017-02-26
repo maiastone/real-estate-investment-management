@@ -4,12 +4,14 @@ import Victory from './Victory.jsx'
 
 export default class PropertyDetailCard extends React.Component {
 
+
   render() {
     const propertyID = this.props.propertyID;
-
     return (
       <div className='graph-container'>
-        <Victory />
+        <Victory
+          propertyID={propertyID}
+        />
         {propertyID}
       </div>
     );
