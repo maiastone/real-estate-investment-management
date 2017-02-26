@@ -9,14 +9,14 @@ const ToggleSwitch = (props) => {
 
           <button
             className="switch-button"
-            style={{backgroundColor: incomeBgColor}}
+            style={{ backgroundColor: incomeBgColor }}
             onClick={(e) => toggleModeIncome(e)}
             >Income
           </button>
 
           <button
             className="switch-button"
-            style={{backgroundColor: debtBgColor}}
+            style={{ backgroundColor: debtBgColor }}
             onClick={(e) => toggleModeDebt(e)}
             >Debt
           </button>
