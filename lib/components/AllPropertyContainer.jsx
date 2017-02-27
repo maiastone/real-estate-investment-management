@@ -58,6 +58,7 @@ export default class AllPropertyContainer extends React.Component {
           <PropertyList />
           <PropertyDetailCard
             propertyID={this.props.params.id}
+            incomeView={this.state.incomeView}
           />
         </div>
       </div>

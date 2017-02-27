@@ -79795,7 +79795,8 @@
 	          { className: 'detail-view' },
 	          _react2.default.createElement(_PropertyList2.default, null),
 	          _react2.default.createElement(_PropertyDetailCard2.default, {
-	            propertyID: this.props.params.id
+	            propertyID: this.props.params.id,
+	            incomeView: this.state.incomeView
 	          })
 	        )
 	      );
@@ -79933,18 +79934,13 @@
 	    key: 'render',
 	    value: function render() {
 	      var propertyID = this.props.propertyID;
+	      var incomeView = this.props.incomeView;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'graph-container' },
-	          _react2.default.createElement(_Victory2.default, {
-	            propertyID: propertyID
-	          }),
-	          propertyID
-	        ),
-	        _react2.default.createElement(_Debt2.default, null)
+	        { className: 'graph-container' },
+	        incomeView ? _react2.default.createElement(_Victory2.default, {
+	          propertyID: propertyID
+	        }) : _react2.default.createElement(_Debt2.default, null)
 	      );
 	    }
 	  }]);
@@ -115393,10 +115389,20 @@
 	          _victory.VictoryChart,
 	          { height: 600, width: 1000,
 	            theme: _victory.VictoryTheme.material,
-	            domainPadding: 20
+	            domainPadding: 40
 	          },
-	          _react2.default.createElement(_victory.VictoryAxis, null),
 	          _react2.default.createElement(_victory.VictoryAxis, {
+	            label: 'years',
+	            style: {
+	              axisLabel: { padding: 30 }
+	            },
+	            tickValues: ['', '', '', '']
+	          }),
+	          _react2.default.createElement(_victory.VictoryAxis, {
+	            label: 'Principal and Interest Payments',
+	            style: {
+	              axisLabel: { padding: 50 }
+	            },
 	            dependentAxis: true,
 	            tickFormat: function tickFormat(x) {
 	              return '$' + x;

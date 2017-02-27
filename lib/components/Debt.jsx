@@ -12,12 +12,20 @@ export default class Debt extends React.Component {
       <div>
         <VictoryChart height={600} width={1000}
           theme={VictoryTheme.material}
-          domainPadding={20}
+          domainPadding={40}
         >
         <VictoryAxis
-
+          label="years"
+          style={{
+            axisLabel: { padding: 30 },
+          }}
+          tickValues={['', '', '', '']}
         />
         <VictoryAxis
+            label="Principal and Interest Payments"
+            style={{
+              axisLabel: { padding: 50 },
+            }}
             dependentAxis
             tickFormat={(x) => (`$${x}`)}
         />
