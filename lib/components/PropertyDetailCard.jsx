@@ -1,6 +1,8 @@
 import React from 'react';
 import AllPropertyContainer from './AllPropertyContainer.jsx';
-import Victory from './Victory.jsx'
+import Victory from './Victory.jsx';
+import Debt from './Debt.jsx';
+
 
 export default class PropertyDetailCard extends React.Component {
 
@@ -12,6 +14,7 @@ export default class PropertyDetailCard extends React.Component {
         <Victory
           propertyID={propertyID}
         />
+        <Debt />
         {propertyID}
       </div>
     );

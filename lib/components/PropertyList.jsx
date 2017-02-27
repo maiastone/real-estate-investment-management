@@ -9,7 +9,7 @@ export default class PropertyList extends React.Component {
   render() {
     const propertyList = properties.map((property) => {
       return <ul>
-        <Link to={'/detail/'+property.id }>
+        <Link to={'/detail/' + property.id}>
                 <li key={property.id}
                   className='property-list'
                 >
