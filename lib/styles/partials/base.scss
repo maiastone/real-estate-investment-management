@@ -29,6 +29,10 @@ a {
   }
 }
 
+ul {
+  margin-top: 15%;
+}
+
 #site-title {
   font-family: $header-font;
   padding: 2% 0% 2% 2%;
@@ -56,8 +60,8 @@ a {
   border: .5px inset black;
   font-size: 22px;
   padding: 7%;
-  border-radius: 5px;
-  margin: 5px;
+  border-radius: 3px;
+  margin-left: 15px;
   text-decoration: none;
 }
 
