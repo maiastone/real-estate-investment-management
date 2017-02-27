@@ -10,12 +10,14 @@ export default class PropertyDetailCard extends React.Component {
   render() {
     const propertyID = this.props.propertyID;
     return (
+      <div>
       <div className='graph-container'>
         <Victory
           propertyID={propertyID}
         />
-        <Debt />
         {propertyID}
+      </div>
+      <Debt />
       </div>
     );
   }
