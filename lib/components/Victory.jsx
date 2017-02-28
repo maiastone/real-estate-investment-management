@@ -18,13 +18,34 @@ export default class Victory extends React.Component {
           domainPadding={20}
         >
         <VictoryAxis
+          style= {{
+            tickLabels: {
+              padding: 10,
+              fontSize: 14,
+              fontFamily: 'News Cycle',
+              fill: '#5d5d5d',
+            },
+          }}
           tickValues={['January', 'April', 'July', 'October']}
         />
         <VictoryAxis
             dependentAxis
+            style= {{
+              tickLabels: {
+                padding: 10,
+                fontSize: 14,
+                fontFamily: 'News Cycle',
+                fill: '#5d5d5d',
+              },
+            }}
             tickFormat={(x) => (`$${x / 1000}k`)}
         />
         <VictoryBar
+          style= {{
+            data: {
+              fill: 'gray',
+            },
+          }}
           data = {propertyData}
           x='month'
           y='rentalIncome'
