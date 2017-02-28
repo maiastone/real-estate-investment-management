@@ -17,7 +17,9 @@ export default class PropertyDetailCard extends React.Component {
         <Victory
           propertyID={propertyID}
         /> :
-        <Debt />}
+        <Debt
+          propertyID={propertyID}
+        />}
       </div>
     );
   }

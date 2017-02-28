@@ -6,6 +6,8 @@ import debt from '../propertyData/debt.js';
 export default class Debt extends React.Component {
 
   render() {
+    const propertyID = this.props.propertyID;
+    const propertyData = debt[propertyID - 1].debt;
     return (
       <div>
         <VictoryChart height={400} width={600}
@@ -77,7 +79,7 @@ export default class Debt extends React.Component {
                   fontSize: 8,
                 },
               }}
-              data = {debt}
+              data = {propertyData}
               domainPadding={20}
               x='date'
               y='prin'
@@ -88,7 +90,7 @@ export default class Debt extends React.Component {
                   fill: 'lightgray',
                 },
               }}
-              data = {debt}
+              data = {propertyData}
               domainPadding={20}
               x='date'
               y='int'

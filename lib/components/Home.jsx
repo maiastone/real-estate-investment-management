@@ -3,7 +3,7 @@ import AuthService from '../utils/AuthService';
 import Login from './Login.jsx';
 import Header from './Header.jsx';
 import ProfileDetails from '../components/Profile/ProfileDetails.jsx';
-import PropertyContainer from './PropertyContainer.jsx';
+import PropertyCardContainer from './PropertyCardContainer.jsx';
 
 
 export class Home extends React.Component {
@@ -32,7 +32,7 @@ export class Home extends React.Component {
     return (
       <div>
         <Header logout={this.logout.bind(this)}/>
-        <PropertyContainer />
+        <PropertyCardContainer />
       </div>
     );
   }
