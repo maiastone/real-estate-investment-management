@@ -51,7 +51,8 @@ export default class AllPropertyContainer extends React.Component {
           toggleModeIncome={this.toggleModeIncome.bind(this)}
           toggleModeDebt={this.toggleModeDebt.bind(this)}
         />
-        <Link to='/home'>
+        <Link to='/home' className='back'>
+          <img src='/lib/images/arrow.svg'/>
           <button id='home'>Property Overview</button>
         </Link>
         <div className='detail-view'>
