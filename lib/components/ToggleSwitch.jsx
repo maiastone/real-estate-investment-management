@@ -9,7 +9,10 @@ const ToggleSwitch = (props) => {
 
           <button
             className="switch-button"
-            style={{ backgroundColor: incomeBgColor }}
+            style={{
+              backgroundColor: incomeBgColor,
+              boxShadow: '2px 2 5 1 rgba(0, 0, 0, 0.2)',
+            }}
             onClick={(e) => toggleModeIncome(e)}
             >Income
           </button>
