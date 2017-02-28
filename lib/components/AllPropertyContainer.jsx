@@ -55,7 +55,9 @@ export default class AllPropertyContainer extends React.Component {
           <button id='home'>Property Overview</button>
         </Link>
         <div className='detail-view'>
-          <PropertyList />
+          <PropertyList
+            propertyID={this.state.propertyID}
+            />
           <PropertyDetailCard
             propertyID={this.props.params.id}
             incomeView={this.state.incomeView}
