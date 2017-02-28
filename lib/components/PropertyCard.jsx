@@ -40,10 +40,11 @@ export default class PropertyCard extends React.Component {
     if (this.state.incomeView === true) {
       component = properties.map((property) => {
         return <div className='property-card' key={property.id}>
-        <Link to={'/detail/'+property.id }
+        <Link to={'/detail/' + property.id}
+          activeClassName='active'
           >
           <img className='chart-img'
-          src='/lib/images/chart_line.png'></img></Link>
+          src='/lib/images/chart.svg'></img></Link>
         <h2>{property.name}</h2>
         <h3>${property.monthToDate} mtd</h3>
       </div>;
@@ -52,9 +53,11 @@ export default class PropertyCard extends React.Component {
       component =
         properties.map((property) => {
           return <div className='property-card' key={property.id}>
-            <Link to='/detail'>
+            <Link to='/detail'
+              activeClassName='active'
+            >
               <img className='chart-img'
-              src='/lib/images/chart_line.png'>
+              src='/lib/images/chart.svg'>
               </img>
             </Link>
             <h2>{property.name}</h2>
@@ -73,7 +76,7 @@ export default class PropertyCard extends React.Component {
             toggleModeIncome={this.toggleModeIncome.bind(this)}
             toggleModeDebt={this.toggleModeDebt.bind(this)}
           />
-          {component}
+            {component}
         </div>
     );
   }

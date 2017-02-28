@@ -3,6 +3,7 @@ import PropertyList from './PropertyList.jsx';
 import Header from './Header.jsx';
 import ToggleSwitch from './ToggleSwitch.jsx';
 import PropertyDetailCard from './PropertyDetailCard.jsx';
+import { Link } from 'react-router';
 
 export default class AllPropertyContainer extends React.Component {
   constructor() {
@@ -39,22 +40,30 @@ export default class AllPropertyContainer extends React.Component {
 
 
   render() {
-
     return (
       <div>
         <header>
           <Header />
         </header>
-        <ToggleSwitch
-          incomeBgColor={this.state.incomeBgColor}
-          debtBgColor={this.state.debtBgColor}
-          toggleModeIncome={this.toggleModeIncome.bind(this)}
-          toggleModeDebt={this.toggleModeDebt.bind(this)}
-        />
+        <section className="detail-links-and-buttons">
+          <Link to='/home' className='back'>
+            <img src='/lib/images/arrow.svg'/>
+            <button id='home'>Property Overview</button>
+          </Link>
+          <ToggleSwitch
+            incomeBgColor={this.state.incomeBgColor}
+            debtBgColor={this.state.debtBgColor}
+            toggleModeIncome={this.toggleModeIncome.bind(this)}
+            toggleModeDebt={this.toggleModeDebt.bind(this)}
+          />
+        </section>
         <div className='detail-view'>
-          <PropertyList />
+          <PropertyList
+            propertyID={this.state.propertyID}
+            />
           <PropertyDetailCard
             propertyID={this.props.params.id}
+            incomeView={this.state.incomeView}
           />
         </div>
       </div>

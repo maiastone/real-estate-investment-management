@@ -1,19 +1,58 @@
-#logout  {
-  width: 50px;
-  height: 25px;
-  background: none;
-  border: 1px solid gray;
-  border-radius: 5px;
-  margin: 1% 0 0 5%;
-  &:hover {
-    color: white;
-    background-color: black;
-  }
+.switch-container {
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.switch-button {
+  font-weight: bold;
+  height: 30px;
+  width: 60px;
+  border: 1px solid $dark-gray;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.active {
+  color: black;
+  background-color: $header-color;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.back {
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.detail-links-and-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+
+.properties {
+  font-size: 22px;
+  padding: 5px;
+  margin: 10px;
 }
 
 .login-container {
   display: flex;
   justify-content: center;
+}
+
+#logout  {
+  width: 50px;
+  height: 25px;
+  background: none;
+  border: 1px solid $dark-gray;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
 }
 
 #login {
@@ -22,31 +61,16 @@
   height: 60px;
   font-size: 24px;
   background: none;
-  border: 1px solid gray;
-  border-radius: 5px;
+  border: 1px solid $dark-gray;
   &:hover {
     color: white;
     background-color: black;
   }
 }
 
-.switch-container {
-  width: 95%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 3%;
-  margin-bottom: 3%;
-}
-
-.switch-button {
-  font-weight: bold;
-  height: 30px;
-  width: 60px;
-
-  border: 1px solid gray;
-  color: rgba(0, 0, 0, 0.65);
-  -webkit-transition: 0.15s ease-out;
-  -moz-transition: 0.15s ease-out;
-  -o-transition: 0.15s ease-out;
-  transition: 0.15s ease-out;
+#home {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  background: none;
 }

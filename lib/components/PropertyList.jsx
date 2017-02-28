@@ -7,15 +7,20 @@ export default class PropertyList extends React.Component {
 
 
   render() {
+    const propertyID = this.props.currentProperty;
     const propertyList = properties.map((property) => {
-      return <ul>
-        <Link to={'/detail/'+property.id }>
-                <li key={property.id}
-                  className='property-list'
-                >
-                {property.name}
-              </li></Link>
-            </ul>;
+      return (
+      <ul>
+        <button className='properties'>
+          <li key={property.id}>
+          <Link to={'/detail/' + property.id}
+            activeClassName="active"
+          >
+              {property.name}
+          </Link>
+            </li>
+        </button>
+      </ul>);
     });
 
     return (
