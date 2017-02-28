@@ -1,7 +1,7 @@
 import React from 'react';
 import * as V from 'victory';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryStack, VictoryTheme, VictoryLabel } from 'victory';
-import debt from '../propertyData/debt.js'
+import debt from '../propertyData/debt.js';
 
 export default class Debt extends React.Component {
 
