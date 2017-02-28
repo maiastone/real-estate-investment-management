@@ -3,7 +3,7 @@ import properties from '../properties.js';
 import ToggleSwitch from './ToggleSwitch.jsx';
 import { Link } from 'react-router';
 
-export default class PropertyCard extends React.Component {
+export default class PropertyCardContainer extends React.Component {
   constructor() {
     super();
     this.state = {

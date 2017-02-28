@@ -1,5 +1,4 @@
 import React from 'react';
-import PropertyCard from './PropertyCard.jsx';
 
 const ToggleSwitch = (props) => {
   const { toggleModeIncome, toggleModeDebt, incomeBgColor, debtBgColor } = props;
