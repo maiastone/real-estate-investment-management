@@ -2,7 +2,6 @@ import React from 'react';
 import properties from '../properties.js';
 import ToggleSwitch from './ToggleSwitch.jsx';
 import { Link } from 'react-router';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class PropertyCard extends React.Component {
   constructor() {
@@ -41,7 +40,7 @@ export default class PropertyCard extends React.Component {
     if (this.state.incomeView === true) {
       component = properties.map((property) => {
         return <div className='property-card' key={property.id}>
-        <Link to={'/detail/'+property.id }
+        <Link to={'/detail/' + property.id}
           activeClassName='active'
           >
           <img className='chart-img'

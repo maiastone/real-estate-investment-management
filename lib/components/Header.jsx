@@ -7,7 +7,7 @@ export default class Header extends React.Component {
     return (
       <div id='site-title'className='header'>
         <h2>Real Estate Dashboard</h2>
-        <button id='logout' onClick={this. props.logout}>Logout</button>
+        <button id='logout' onClick={this.props.logout}>Logout</button>
       </div>
     );
   }

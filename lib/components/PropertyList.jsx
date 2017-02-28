@@ -7,7 +7,7 @@ export default class PropertyList extends React.Component {
 
 
   render() {
-    const propertyID = this.props.currentProperty
+    const propertyID = this.props.currentProperty;
     const propertyList = properties.map((property) => {
       return (
       <ul>
