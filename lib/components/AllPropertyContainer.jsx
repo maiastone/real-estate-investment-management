@@ -12,7 +12,7 @@ export default class AllPropertyContainer extends React.Component {
       incomeView: true,
       incomeBgColor: 'white',
       debtBgColor: 'gray',
-      propertyID: null,
+      propertyID: 1,
     };
   }
 
@@ -42,7 +42,7 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <header>
+        <header className='header'>
           <Header />
         </header>
         <section className="detail-links-and-buttons">
@@ -60,7 +60,7 @@ export default class AllPropertyContainer extends React.Component {
         <div className='detail-view'>
           <PropertyList
             propertyID={this.state.propertyID}
-            />
+          />
           <PropertyDetailCard
             propertyID={this.props.params.id}
             incomeView={this.state.incomeView}

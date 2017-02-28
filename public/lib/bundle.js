@@ -79674,7 +79674,7 @@
 	      incomeView: true,
 	      incomeBgColor: 'white',
 	      debtBgColor: 'gray',
-	      propertyID: null
+	      propertyID: 1
 	    };
 	    return _this;
 	  }
@@ -79711,7 +79711,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'header',
-	          null,
+	          { className: 'header' },
 	          _react2.default.createElement(_Header2.default, null)
 	        ),
 	        _react2.default.createElement(
@@ -115388,13 +115388,13 @@
 	                padding: 20,
 	                fontFamily: 'News Cycle'
 	              },
-	              axis: { stroke: "black", strokeWidth: 1 },
+	              axis: { stroke: 'black', strokeWidth: 1 },
 	              ticks: {
 	                size: function size(tick) {
 	                  var tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
 	                  return tickSize;
 	                },
-	                stroke: "black",
+	                stroke: 'black',
 	                strokeWidth: 1
 	              }
 	            }
