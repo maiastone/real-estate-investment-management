@@ -6,7 +6,6 @@ import Debt from './Debt.jsx';
 
 export default class PropertyDetailCard extends React.Component {
 
-
   render() {
     const propertyID = this.props.propertyID;
     const incomeView = this.props.incomeView;
