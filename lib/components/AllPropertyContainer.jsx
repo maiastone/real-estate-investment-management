@@ -12,7 +12,7 @@ export default class AllPropertyContainer extends React.Component {
       incomeView: true,
       incomeBgColor: 'white',
       debtBgColor: 'gray',
-      propertyID: 1,
+      propertyID: null,
     };
   }
 

@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
-    "test": "mocha --compilers js:babel/register"
+    "test": "mocha --compilers js:babel-register --require test/helpers/setup.js --recursive"
   },
   "repository": {
     "type": "git",
@@ -31,18 +31,23 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "enzyme": "^2.5.1",
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
+    "jsdom": "^9.8.3",
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "react": "^15.4.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-addons-update": "^15.3.2",
     "react-dom": "^15.1.0",
     "sass-loader": "^3.2.0",
+    "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
