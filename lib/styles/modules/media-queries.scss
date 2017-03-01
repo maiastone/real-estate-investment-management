@@ -1,16 +1,16 @@
 @media screen and (max-width: 600px) {
-  .property-card {
-    margin: 5% 15%;
-  }
   .detail-view {
     flex-direction: column;
-  }
-  ul {
-    flex-direction: row;
-    flex-wrap: wrap;
   }
   .graph-container {
     width: 100%;
     margin: 5px 0 0 0;
+  }
+  .property-card {
+    margin: 5% 15%;
+  }
+  ul {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
