@@ -1,16 +1,8 @@
-.switch-container {
-  width: 95%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.switch-button-income, .switch-button-debt {
-  font-weight: bold;
-  height: 30px;
-  width: 60px;
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.65);
+button {
+  border: none;
+  background: none;
+  outline: none;
+  color: $dark-gray;
 }
 
 .active {
@@ -32,6 +24,21 @@
 
 .graph-icon-link {
   background-color: transparent;
+}
+
+.switch-container {
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.switch-button-income, .switch-button-debt {
+  font-weight: bold;
+  height: 30px;
+  width: 60px;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .detail-links-and-buttons {
@@ -64,12 +71,12 @@
 }
 
 #login {
-  margin-top: 25%;
   width: 200px;
   height: 60px;
-  font-size: 24px;
+  font-size: $medium-font;
   background: none;
   border: 1px solid $dark-gray;
+  margin-top: 25%;
   &:hover {
     color: white;
     background-color: black;
