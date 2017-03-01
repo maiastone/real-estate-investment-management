@@ -20,7 +20,7 @@ module.exports = {
           presets: ['es2015', 'react', 'stage-0'],
         },
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass', include: path.join(__dirname, 'lib', 'styles') },
     ],
   },
