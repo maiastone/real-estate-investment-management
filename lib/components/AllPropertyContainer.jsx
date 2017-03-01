@@ -42,9 +42,9 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <header className='header'>
-          <Header />
-        </header>
+        <div className='site-title header'>
+          <h2>Real Estate Dashboard</h2>
+        </div>
         <section className="detail-links-and-buttons">
           <Link to='/home' className='back'>
             <img src='/lib/images/arrow.svg'/>

@@ -21,6 +21,7 @@ a {
   color: $dark-gray;
   padding: 10px;
   font-size: 18px;
+  background-color: #e7e7e7;
 }
 
 ul {
@@ -37,7 +38,7 @@ li:visited {
   color: $light-gray;
 }
 
-#site-title {
+.site-title {
   font-family: "Amethysta", serif;
   padding: 2%;
   font-size: 30px;
