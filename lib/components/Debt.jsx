@@ -15,9 +15,15 @@ export default class Debt extends React.Component {
           height={400} width={600}
           domainPadding={40}
         >
-
+        <VictoryLabel x={60} y={10} style={{ fontFamily: 'News Cycle',
+          fontSize: 18, fontWeight: 'bold' }}
+          text={'30 Year Amortization Schedule'}
+          />
+        <VictoryLabel x={60} y={30} style={{ fontFamily: 'News Cycle',
+        fontSize: 16 }}
+                 text={'Mortgage payments applied to principal and interest'}
+          />
           <VictoryAxis
-            label='30 Year Amortization Schedule'
             scale='time'
             tickFormat={
              (x) => {
@@ -35,11 +41,6 @@ export default class Debt extends React.Component {
                 fontSize: 14,
                 fontFamily: 'News Cycle',
                 fill: '#5d5d5d',
-              },
-              labels: {
-                fontSize: 12,
-                padding: 20,
-                fontFamily: 'News Cycle',
               },
               axis: { stroke: 'black', strokeWidth: 1 },
               ticks: {
