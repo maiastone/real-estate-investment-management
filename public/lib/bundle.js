@@ -26839,11 +26839,11 @@
 
 	    _this.lock = new _auth0Lock2.default(clientId, domain, {
 	      auth: {
-	        redirectUrl: 'http://localhost:8080/home',
+	        redirectUrl: 'https://fierce-cove-58460.herokuapp.com/',
 	        responseType: 'token'
 	      },
 	      languageDictionary: {
-	        title: 'Real Estate Management'
+	        title: 'Real Estate Dashboard'
 	      }
 	    });
 	    // Add callback for lock `authenticated` event
