@@ -1,13 +1,19 @@
 process.env.NODE_ENV = 'test';
 
 var chai = require('chai');
-var should = chai.should();
 var chaiHttp = require('chai-http');
 var server = require('../server.js');
+var should = chai.should();
 
 chai.use(chaiHttp);
-describe('GET /', function() {
-  it('should send index.html', function(done) {
-    done();
+
+describe('Server', function () {
+  it('should respond with 200', function (done) {
+    chai.request(server)
+    .get('/')
+    .end(function (err, res) {
+      res.should.have.status(200);
+      done();
+    });
   });
 });
