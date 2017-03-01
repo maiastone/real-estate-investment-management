@@ -79139,57 +79139,38 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Header = function Header(props) {
+	  var logout = props.logout;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'site-title header' },
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Real Estate Dashboard'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      {
+	        id: 'logout',
+	        onClick: function onClick(e) {
+	          return logout(e);
+	        }
+	      },
+	      'Logout'
+	    )
+	  );
+	};
 
-	var Header = function (_React$Component) {
-	  _inherits(Header, _React$Component);
-
-	  function Header() {
-	    _classCallCheck(this, Header);
-
-	    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
-	  }
-
-	  _createClass(Header, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { id: 'site-title', className: 'header' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Real Estate Dashboard'
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { id: 'logout', onClick: this.props.logout },
-	          'Logout'
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Header;
-	}(_react2.default.Component);
-
-	exports.default = Header;
+	module.exports = Header;
 
 /***/ },
 /* 603 */
@@ -79383,8 +79364,8 @@
 
 	    _this.state = {
 	      incomeView: true,
-	      incomeBgColor: 'white',
-	      debtBgColor: 'gray'
+	      incomeBgColor: '#6df281',
+	      debtBgColor: '#bfbfbf'
 	    };
 	    return _this;
 	  }
@@ -79396,8 +79377,8 @@
 	      if (this.state.incomeView === false) {
 	        this.setState({
 	          incomeView: true,
-	          incomeBgColor: 'white',
-	          debtBgColor: 'gray'
+	          incomeBgColor: '#6df281',
+	          debtBgColor: '#bfbfbf'
 	        });
 	      }
 	    }
@@ -79408,8 +79389,8 @@
 	      if (this.state.incomeView === true) {
 	        this.setState({
 	          incomeView: false,
-	          incomeBgColor: 'gray',
-	          debtBgColor: 'white'
+	          incomeBgColor: '#bfbfbf',
+	          debtBgColor: '#6df281'
 	        });
 	      }
 	    }
@@ -79425,7 +79406,8 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/detail/' + property.id,
-	                activeClassName: 'active'
+	                activeClassName: 'active',
+	                className: 'graph-icon-link'
 	              },
 	              _react2.default.createElement('img', { className: 'chart-img',
 	                src: '/lib/images/chart.svg' })
@@ -79451,8 +79433,9 @@
 	            { className: 'property-card', key: property.id },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/detail',
-	                activeClassName: 'active'
+	              { to: '/detail/' + property.id,
+	                activeClassName: 'active',
+	                className: 'graph-icon-link'
 	              },
 	              _react2.default.createElement('img', { className: 'chart-img',
 	                src: '/lib/images/chart.svg' })
@@ -79672,7 +79655,7 @@
 	    _this.state = {
 	      incomeView: true,
 	      incomeBgColor: '#6df281',
-	      debtBgColor: 'gray',
+	      debtBgColor: '#bfbfbf',
 	      propertyID: 1
 	    };
 	    return _this;
@@ -79686,7 +79669,7 @@
 	        this.setState({
 	          incomeView: true,
 	          incomeBgColor: '#6df281',
-	          debtBgColor: 'gray'
+	          debtBgColor: '#bfbfbf'
 	        });
 	      }
 	    }
@@ -79697,7 +79680,7 @@
 	      if (this.state.incomeView === true) {
 	        this.setState({
 	          incomeView: false,
-	          incomeBgColor: 'gray',
+	          incomeBgColor: '#bfbfbf',
 	          debtBgColor: '#6df281'
 	        });
 	      }
@@ -79709,9 +79692,13 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'header',
-	          { className: 'header' },
-	          _react2.default.createElement(_Header2.default, null)
+	          'div',
+	          { className: 'site-title header' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Real Estate Dashboard'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'section',
@@ -115372,7 +115359,7 @@
 	            domainPadding: 40
 	          },
 	          _react2.default.createElement(_victory.VictoryAxis, {
-	            label: '30 Year Amortization Schedule: 2017 - 2047',
+	            label: '30 Year Amortization Schedule',
 	            scale: 'time',
 	            tickFormat: function tickFormat(x) {
 	              if (x.getFullYear() === 2000) {
@@ -115508,7 +115495,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f3f3f3;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 32px;\n  color: #4b4b4b; }\n\nbutton {\n  border: none;\n  background: none;\n  outline: none;\n  color: #4b4b4b; }\n\na {\n  text-decoration: none;\n  color: #4b4b4b;\n  padding: 10px;\n  font-size: 18px; }\n\nul {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  padding-top: 3%; }\n  ul button {\n    text-align: left; }\n\nli:visited {\n  color: #9c9c9c; }\n\n#site-title {\n  font-family: \"Amethysta\", serif;\n  padding: 2%;\n  font-size: 30px;\n  background-color: #6df281;\n  z-index: 999;\n  color: #4b4b4b;\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n\n.switch-container {\n  width: 95%;\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 20px; }\n\n.switch-button-income, .switch-button-debt {\n  font-weight: bold;\n  height: 30px;\n  width: 60px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  color: rgba(0, 0, 0, 0.65); }\n\n.active {\n  color: black;\n  background-color: #6df281;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); }\n\n.back {\n  display: flex;\n  justify-content: flex-start;\n  cursor: pointer;\n  margin-left: 10px; }\n  .back:hover {\n    background-color: #dadada; }\n\n.detail-links-and-buttons {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2%; }\n\n.properties {\n  font-size: 22px;\n  padding: 5px;\n  margin: 10px; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #logout:hover {\n    color: white;\n    background-color: #4b4b4b; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n#home {\n  width: 150px;\n  height: 40px;\n  font-size: 14px;\n  background: none; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2 {\n    text-align: center;\n    font-size: 24px;\n    padding: 6% 8% 8% 8%; }\n  .property-card h3 {\n    text-align: center;\n    font-size: 28px;\n    padding: 4% 8% 8% 8%;\n    color: #691B8D; }\n  .property-card h4 {\n    font-size: 28px;\n    padding: 2%;\n    text-align: center;\n    color: #691B8D; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 85%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.graph-container {\n  margin: 5px 0 0 3%;\n  width: 65%;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  padding: 2%;\n  margin-bottom: 10%; }\n\n.detail-view {\n  display: flex; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 2%; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f3f3f3;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 32px;\n  color: #4b4b4b; }\n\nbutton {\n  border: none;\n  background: none;\n  outline: none;\n  color: #4b4b4b; }\n\na {\n  text-decoration: none;\n  color: #4b4b4b;\n  padding: 10px;\n  font-size: 18px;\n  background-color: #e7e7e7; }\n\nul {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  padding-top: 3%; }\n  ul button {\n    text-align: left; }\n\nli:visited {\n  color: #9c9c9c; }\n\n.site-title {\n  font-family: \"Amethysta\", serif;\n  padding: 2%;\n  font-size: 30px;\n  background-color: #6df281;\n  z-index: 999;\n  color: #4b4b4b;\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n\n.switch-container {\n  width: 95%;\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 20px; }\n\n.switch-button-income, .switch-button-debt {\n  font-weight: bold;\n  height: 30px;\n  width: 60px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  color: rgba(0, 0, 0, 0.65); }\n\n.active {\n  color: black;\n  background-color: #6df281;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); }\n\n.back {\n  display: flex;\n  justify-content: flex-start;\n  cursor: pointer;\n  margin-left: 10px;\n  padding: 5px; }\n  .back:hover {\n    background-color: #dadada; }\n\n.graph-icon-link {\n  background-color: transparent; }\n\n.detail-links-and-buttons {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2%; }\n\n.properties {\n  font-size: 22px;\n  padding: 5px;\n  margin: 10px; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #logout:hover {\n    color: white;\n    background-color: #4b4b4b; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n#home {\n  width: 150px;\n  height: 40px;\n  font-size: 14px;\n  background: none; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 3%; }\n  .property-card h2 {\n    text-align: center;\n    font-size: 24px;\n    padding: 6% 8% 8% 8%; }\n  .property-card h3 {\n    text-align: center;\n    font-size: 28px;\n    padding: 4% 8% 8% 8%;\n    color: #691B8D; }\n  .property-card h4 {\n    font-size: 28px;\n    padding: 2%;\n    text-align: center;\n    color: #691B8D; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 84%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.graph-container {\n  margin: 5px 0 0 3%;\n  width: 65%;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  padding: 2%;\n  margin-bottom: 10%; }\n\n.detail-view {\n  display: flex; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n@media screen and (max-width: 600px) {\n  .property-card {\n    margin: 5% 15%; }\n  .detail-view {\n    flex-direction: column; }\n  ul {\n    flex-direction: row;\n    flex-wrap: wrap; }\n  .graph-container {\n    width: 100%;\n    margin: 5px 0 0 0; } }\n", ""]);
 
 	// exports
 

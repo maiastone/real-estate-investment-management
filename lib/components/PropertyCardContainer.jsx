@@ -8,8 +8,8 @@ export default class PropertyCardContainer extends React.Component {
     super();
     this.state = {
       incomeView: true,
-      incomeBgColor: 'white',
-      debtBgColor: 'gray',
+      incomeBgColor: '#6df281',
+      debtBgColor: '#bfbfbf',
     };
   }
 
@@ -18,8 +18,8 @@ export default class PropertyCardContainer extends React.Component {
     if (this.state.incomeView === false) {
       this.setState({
         incomeView: true,
-        incomeBgColor: 'white',
-        debtBgColor: 'gray',
+        incomeBgColor: '#6df281',
+        debtBgColor: '#bfbfbf',
       });
     }
   }
@@ -29,8 +29,8 @@ export default class PropertyCardContainer extends React.Component {
     if (this.state.incomeView === true) {
       this.setState({
         incomeView: false,
-        incomeBgColor: 'gray',
-        debtBgColor: 'white',
+        incomeBgColor: '#bfbfbf',
+        debtBgColor: '#6df281',
       });
     }
   }
@@ -42,6 +42,7 @@ export default class PropertyCardContainer extends React.Component {
         return <div className='property-card' key={property.id}>
         <Link to={'/detail/' + property.id}
           activeClassName='active'
+          className='graph-icon-link'
           >
           <img className='chart-img'
           src='/lib/images/chart.svg'></img></Link>
@@ -53,8 +54,9 @@ export default class PropertyCardContainer extends React.Component {
       component =
         properties.map((property) => {
           return <div className='property-card' key={property.id}>
-            <Link to='/detail'
+            <Link to={'/detail/' + property.id}
               activeClassName='active'
+              className='graph-icon-link'
             >
               <img className='chart-img'
               src='/lib/images/chart.svg'>
