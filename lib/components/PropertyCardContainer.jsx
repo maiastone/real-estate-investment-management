@@ -71,6 +71,7 @@ export default class PropertyCardContainer extends React.Component {
     return (
         <div className='property-container'>
           <ToggleSwitch
+            className='toggle'
             incomeBgColor={this.state.incomeBgColor}
             debtBgColor={this.state.debtBgColor}
             toggleModeIncome={this.toggleModeIncome.bind(this)}

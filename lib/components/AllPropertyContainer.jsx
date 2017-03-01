@@ -51,6 +51,7 @@ export default class AllPropertyContainer extends React.Component {
             <button id='home'>Property Overview</button>
           </Link>
           <ToggleSwitch
+            className='toggle'
             incomeBgColor={this.state.incomeBgColor}
             debtBgColor={this.state.debtBgColor}
             toggleModeIncome={this.toggleModeIncome.bind(this)}

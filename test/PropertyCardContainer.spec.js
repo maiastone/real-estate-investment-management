@@ -50,11 +50,12 @@ describe('PropertyCardContainer', () => {
     wrapper.find('.switch-button-debt').simulate('click');
     assert.equal(wrapper.state().incomeView, false);
   });
-  xit('should have a render the ToggleSwitch component', () => {
-
+  it('should have a render the ToggleSwitch component', () => {
+    const wrapper = shallow(<PropertyCardContainer />);
+    expect(wrapper.find('.toggle')).to.have.length(1);
   });
-  xit('should have a render the property cards', () => {
-    const PropertyCard = shallow(<PropertyCardContainer properties={mockProperties} />);
-    expect(PropertyCard.find('.property-card').length).toEqual(3);
+  it('should render the property cards', () => {
+    const wrapper = shallow(<PropertyCardContainer />);
+    expect(wrapper.find('.property-card')).to.have.length(8);
   });
 });

@@ -14,9 +14,11 @@ export default class PropertyDetailCard extends React.Component {
       <div className='graph-container'>
         {incomeView ?
         <Victory
+          className='victory'
           propertyID={propertyID}
         /> :
         <Debt
+          className='debt'
           propertyID={propertyID}
         />}
       </div>

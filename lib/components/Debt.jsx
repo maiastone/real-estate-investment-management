@@ -6,11 +6,13 @@ import debt from '../propertyData/debt.js';
 export default class Debt extends React.Component {
 
   render() {
-    const propertyID = this.props.propertyID;
+    const propertyID = this.props.propertyID || 1;
     const propertyData = debt[propertyID - 1].debt;
     return (
       <div>
-        <VictoryChart height={400} width={600}
+        <VictoryChart
+          className='debt'
+          height={400} width={600}
           domainPadding={40}
         >
 
