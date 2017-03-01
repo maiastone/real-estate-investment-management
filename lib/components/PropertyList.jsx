@@ -14,7 +14,7 @@ export default class PropertyList extends React.Component {
         <button className='properties'>
           <li key={property.id}>
           <Link to={'/detail/' + property.id}
-            activeClassName="active"
+            activeClassName='active'
           >
               {property.name}
           </Link>

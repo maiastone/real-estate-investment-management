@@ -26660,6 +26660,7 @@
 	    React.createElement(_reactRouter.IndexRoute, { component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
+	    React.createElement(_reactRouter.Route, { path: '/detail', component: _AllPropertyContainer2.default }),
 	    React.createElement(_reactRouter.Route, { path: '/detail/:id', component: _AllPropertyContainer2.default })
 	  );
 	};

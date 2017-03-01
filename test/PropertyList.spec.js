@@ -47,7 +47,6 @@ describe('PropertyList', () => {
   });
   it('should render the name of the property in the list', () => {
     const wrapper = shallow(<PropertyList properties={mockProperties}/>);
-    console.log(mockProperties[0].name);
     expect(mockProperties[0].name).to.equal('Blue RiNo');
   });
 });
