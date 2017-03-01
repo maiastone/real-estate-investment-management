@@ -17,7 +17,7 @@ export default class Debt extends React.Component {
         >
 
           <VictoryAxis
-            label='30 Year Amortization Schedule: 2017 - 2047'
+            label='30 Year Amortization Schedule'
             scale='time'
             tickFormat={
              (x) => {

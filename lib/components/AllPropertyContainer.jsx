@@ -11,7 +11,7 @@ export default class AllPropertyContainer extends React.Component {
     this.state = {
       incomeView: true,
       incomeBgColor: '#6df281',
-      debtBgColor: 'gray',
+      debtBgColor: '#bfbfbf',
       propertyID: 1,
     };
   }
@@ -22,7 +22,7 @@ export default class AllPropertyContainer extends React.Component {
       this.setState({
         incomeView: true,
         incomeBgColor: '#6df281',
-        debtBgColor: 'gray',
+        debtBgColor: '#bfbfbf',
       });
     }
   }
@@ -32,7 +32,7 @@ export default class AllPropertyContainer extends React.Component {
     if (this.state.incomeView === true) {
       this.setState({
         incomeView: false,
-        incomeBgColor: 'gray',
+        incomeBgColor: '#bfbfbf',
         debtBgColor: '#6df281',
       });
     }
