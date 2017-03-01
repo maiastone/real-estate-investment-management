@@ -15,6 +15,7 @@ export default class Victory extends React.Component {
     return (
       <div>
         <VictoryChart
+          className='victory'
           domainPadding={20}
         >
         <VictoryAxis

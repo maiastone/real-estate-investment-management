@@ -6,17 +6,19 @@ import debt from '../propertyData/debt.js';
 export default class Debt extends React.Component {
 
   render() {
-    const propertyID = this.props.propertyID;
+    const propertyID = this.props.propertyID || 1;
     const propertyData = debt[propertyID - 1].debt;
     return (
       <div>
-        <VictoryChart height={400} width={600}
+        <VictoryChart
+          className='debt'
+          height={400} width={600}
           domainPadding={40}
         >
 
           <VictoryAxis
-            label="30 Year Amortization Schedule: 2017 - 2047"
-            scale="time"
+            label='30 Year Amortization Schedule: 2017 - 2047'
+            scale='time'
             tickFormat={
              (x) => {
                if (x.getFullYear() === 2000) {
@@ -39,14 +41,14 @@ export default class Debt extends React.Component {
                 padding: 20,
                 fontFamily: 'News Cycle',
               },
-              axis: { stroke: "black", strokeWidth: 1 },
+              axis: { stroke: 'black', strokeWidth: 1 },
               ticks: {
                 size: (tick) => {
                   const tickSize =
                     tick.getFullYear() % 5 === 0 ? 10 : 5;
                   return tickSize;
                 },
-                stroke: "black",
+                stroke: 'black',
                 strokeWidth: 1
               },
             }}

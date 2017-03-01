@@ -6,6 +6,10 @@
     "mocha": true,
     "node": true
   },
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
   "rules": {
     "quotes": [2, "single"],
     "eol-last": [0],

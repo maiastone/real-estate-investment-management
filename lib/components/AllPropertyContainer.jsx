@@ -10,9 +10,9 @@ export default class AllPropertyContainer extends React.Component {
     super();
     this.state = {
       incomeView: true,
-      incomeBgColor: 'white',
+      incomeBgColor: '#6df281',
       debtBgColor: 'gray',
-      propertyID: null,
+      propertyID: 1,
     };
   }
 
@@ -21,7 +21,7 @@ export default class AllPropertyContainer extends React.Component {
     if (this.state.incomeView === false) {
       this.setState({
         incomeView: true,
-        incomeBgColor: 'white',
+        incomeBgColor: '#6df281',
         debtBgColor: 'gray',
       });
     }
@@ -33,7 +33,7 @@ export default class AllPropertyContainer extends React.Component {
       this.setState({
         incomeView: false,
         incomeBgColor: 'gray',
-        debtBgColor: 'white',
+        debtBgColor: '#6df281',
       });
     }
   }
@@ -42,7 +42,7 @@ export default class AllPropertyContainer extends React.Component {
   render() {
     return (
       <div>
-        <header>
+        <header className='header'>
           <Header />
         </header>
         <section className="detail-links-and-buttons">
@@ -51,6 +51,7 @@ export default class AllPropertyContainer extends React.Component {
             <button id='home'>Property Overview</button>
           </Link>
           <ToggleSwitch
+            className='toggle'
             incomeBgColor={this.state.incomeBgColor}
             debtBgColor={this.state.debtBgColor}
             toggleModeIncome={this.toggleModeIncome.bind(this)}
@@ -60,7 +61,7 @@ export default class AllPropertyContainer extends React.Component {
         <div className='detail-view'>
           <PropertyList
             propertyID={this.state.propertyID}
-            />
+          />
           <PropertyDetailCard
             propertyID={this.props.params.id}
             incomeView={this.state.incomeView}

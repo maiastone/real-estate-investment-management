@@ -5,11 +5,11 @@
   margin-top: 20px;
 }
 
-.switch-button {
+.switch-button-income, .switch-button-debt {
   font-weight: bold;
   height: 30px;
   width: 60px;
-  border: 1px solid $dark-gray;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.65);
 }
 
@@ -24,6 +24,9 @@
   justify-content: flex-start;
   cursor: pointer;
   margin-left: 10px;
+  &:hover {
+    background-color: darken($body-color, 10%);
+  }
 }
 
 .detail-links-and-buttons {
@@ -51,7 +54,7 @@
   border: 1px solid $dark-gray;
   &:hover {
     color: white;
-    background-color: black;
+    background-color: $dark-gray;
   }
 }
 
