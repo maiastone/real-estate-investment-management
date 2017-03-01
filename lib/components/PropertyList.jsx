@@ -7,11 +7,11 @@ export default class PropertyList extends React.Component {
 
 
   render() {
-    const propertyID = this.props.currentProperty;
     const propertyList = properties.map((property) => {
       return (
-      <ul>
-        <button className='properties'>
+        <button
+          key={property.id}
+          className='properties'>
           <li key={property.id}>
           <Link to={'/detail/' + property.id}
             activeClassName='active'
@@ -20,12 +20,12 @@ export default class PropertyList extends React.Component {
           </Link>
             </li>
         </button>
-      </ul>);
+      );
     });
 
     return (
       <div>
-        {propertyList}
+        <ul>{propertyList}</ul>
       </div>
     );
   }

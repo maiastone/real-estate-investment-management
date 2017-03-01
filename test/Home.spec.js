@@ -2,7 +2,7 @@
 // import { shallow, mount, render } from 'enzyme';
 // import { assert, expect } from 'chai';
 // let sinon = require('sinon');
-
+//
 // import Home from '../lib/components/Home.jsx';
 //
 // describe('Home', () => {

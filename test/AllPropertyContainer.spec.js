@@ -7,7 +7,6 @@ let sinon = require('sinon');
 import AllPropertyContainer from '../lib/components/AllPropertyContainer.jsx';
 
 describe('AllPropertyContainer', () => {
-
   it('renders as a <div>', () => {
     const wrapper = shallow(<AllPropertyContainer params={1} />);
     assert.equal(wrapper.type(), 'div');
@@ -26,8 +25,8 @@ describe('AllPropertyContainer', () => {
     const wrapper = shallow(<AllPropertyContainer params={1}/>);
     expect(wrapper.find('.toggle')).to.have.length(1);
   });
-  it('should render the Victory component if incomeView is true', () => {
-    const wrapper = shallow(<MemoryRouter><AllPropertyContainer params={1}/></MemoryRouter>);
-    expect(wrapper.find('.victory')).to.have.length(1);
+  it('should render the PropertyList and PropertyDetailCard', () => {
+    const wrapper = shallow(<AllPropertyContainer params={1}/>);
+    expect(wrapper.find('.detail-view')).to.have.length(1);
   });
 });

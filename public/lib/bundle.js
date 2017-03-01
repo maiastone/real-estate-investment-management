@@ -79488,6 +79488,7 @@
 	        'div',
 	        { className: 'property-container' },
 	        _react2.default.createElement(_ToggleSwitch2.default, {
+	          className: 'toggle',
 	          incomeBgColor: this.state.incomeBgColor,
 	          debtBgColor: this.state.debtBgColor,
 	          toggleModeIncome: this.toggleModeIncome.bind(this),
@@ -79670,7 +79671,7 @@
 
 	    _this.state = {
 	      incomeView: true,
-	      incomeBgColor: 'white',
+	      incomeBgColor: '#6df281',
 	      debtBgColor: 'gray',
 	      propertyID: 1
 	    };
@@ -79684,7 +79685,7 @@
 	      if (this.state.incomeView === false) {
 	        this.setState({
 	          incomeView: true,
-	          incomeBgColor: 'white',
+	          incomeBgColor: '#6df281',
 	          debtBgColor: 'gray'
 	        });
 	      }
@@ -79697,7 +79698,7 @@
 	        this.setState({
 	          incomeView: false,
 	          incomeBgColor: 'gray',
-	          debtBgColor: 'white'
+	          debtBgColor: '#6df281'
 	        });
 	      }
 	    }
@@ -79726,6 +79727,7 @@
 	            )
 	          ),
 	          _react2.default.createElement(_ToggleSwitch2.default, {
+	            className: 'toggle',
 	            incomeBgColor: this.state.incomeBgColor,
 	            debtBgColor: this.state.debtBgColor,
 	            toggleModeIncome: this.toggleModeIncome.bind(this),
@@ -79798,24 +79800,21 @@
 	  _createClass(PropertyList, [{
 	    key: 'render',
 	    value: function render() {
-	      var propertyID = this.props.currentProperty;
 	      var propertyList = _properties2.default.map(function (property) {
 	        return _react2.default.createElement(
-	          'ul',
-	          null,
+	          'button',
+	          {
+	            key: property.id,
+	            className: 'properties' },
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'properties' },
+	            'li',
+	            { key: property.id },
 	            _react2.default.createElement(
-	              'li',
-	              { key: property.id },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/detail/' + property.id,
-	                  activeClassName: 'active'
-	                },
-	                property.name
-	              )
+	              _reactRouter.Link,
+	              { to: '/detail/' + property.id,
+	                activeClassName: 'active'
+	              },
+	              property.name
 	            )
 	          )
 	        );
@@ -79824,7 +79823,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        propertyList
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          propertyList
+	        )
 	      );
 	    }
 	  }]);
@@ -79888,8 +79891,10 @@
 	        'div',
 	        { className: 'graph-container' },
 	        incomeView ? _react2.default.createElement(_Victory2.default, {
+	          className: 'victory',
 	          propertyID: propertyID
 	        }) : _react2.default.createElement(_Debt2.default, {
+	          className: 'debt',
 	          propertyID: propertyID
 	        })
 	      );
@@ -115354,7 +115359,7 @@
 	  _createClass(Debt, [{
 	    key: 'render',
 	    value: function render() {
-	      var propertyID = this.props.propertyID;
+	      var propertyID = this.props.propertyID || 1;
 	      var propertyData = _debt2.default[propertyID - 1].debt;
 	      return _react2.default.createElement(
 	        'div',
@@ -115503,7 +115508,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f3f3f3;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 32px;\n  color: #4b4b4b; }\n\nbutton {\n  border: none;\n  background: none;\n  outline: none;\n  color: #4b4b4b; }\n\na {\n  text-decoration: none;\n  color: #4b4b4b;\n  padding: 10px;\n  font-size: 18px; }\n\nul {\n  list-style: none; }\n\nli:visited {\n  color: #9c9c9c; }\n\n#site-title {\n  font-family: \"Amethysta\", serif;\n  padding: 2%;\n  font-size: 30px;\n  background-color: #6df281;\n  z-index: 999;\n  color: #4b4b4b;\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n\n.switch-container {\n  width: 95%;\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 20px; }\n\n.switch-button-income, .switch-button-debt {\n  font-weight: bold;\n  height: 30px;\n  width: 60px;\n  border: 1px solid #4b4b4b;\n  color: rgba(0, 0, 0, 0.65); }\n\n.active {\n  color: black;\n  background-color: #6df281;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); }\n\n.back {\n  display: flex;\n  justify-content: flex-start;\n  cursor: pointer;\n  margin-left: 10px; }\n\n.detail-links-and-buttons {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2%; }\n\n.properties {\n  font-size: 22px;\n  padding: 5px;\n  margin: 10px; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #logout:hover {\n    color: white;\n    background-color: black; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n#home {\n  width: 150px;\n  height: 40px;\n  font-size: 14px;\n  background: none; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2 {\n    text-align: center;\n    font-size: 24px;\n    padding: 6% 8% 8% 8%; }\n  .property-card h3 {\n    text-align: center;\n    font-size: 28px;\n    padding: 4% 8% 8% 8%;\n    color: #691B8D; }\n  .property-card h4 {\n    font-size: 28px;\n    padding: 2%;\n    text-align: center;\n    color: #691B8D; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 85%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.graph-container {\n  margin: 5px 0 0 3%;\n  width: 65%;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  padding: 2%;\n  margin-bottom: 10%; }\n\n.detail-view {\n  display: flex; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 2%; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: \"News Cycle\", sans-serif;\n  background-color: #f3f3f3;\n  box-sizing: border-box; }\n\nh2 {\n  font-size: 32px;\n  color: #4b4b4b; }\n\nbutton {\n  border: none;\n  background: none;\n  outline: none;\n  color: #4b4b4b; }\n\na {\n  text-decoration: none;\n  color: #4b4b4b;\n  padding: 10px;\n  font-size: 18px; }\n\nul {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  padding-top: 3%; }\n  ul button {\n    text-align: left; }\n\nli:visited {\n  color: #9c9c9c; }\n\n#site-title {\n  font-family: \"Amethysta\", serif;\n  padding: 2%;\n  font-size: 30px;\n  background-color: #6df281;\n  z-index: 999;\n  color: #4b4b4b;\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n\n.switch-container {\n  width: 95%;\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 20px; }\n\n.switch-button-income, .switch-button-debt {\n  font-weight: bold;\n  height: 30px;\n  width: 60px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  color: rgba(0, 0, 0, 0.65); }\n\n.active {\n  color: black;\n  background-color: #6df281;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); }\n\n.back {\n  display: flex;\n  justify-content: flex-start;\n  cursor: pointer;\n  margin-left: 10px; }\n  .back:hover {\n    background-color: #dadada; }\n\n.detail-links-and-buttons {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2%; }\n\n.properties {\n  font-size: 22px;\n  padding: 5px;\n  margin: 10px; }\n\n.login-container {\n  display: flex;\n  justify-content: center; }\n\n#logout {\n  width: 50px;\n  height: 25px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #logout:hover {\n    color: white;\n    background-color: #4b4b4b; }\n\n#login {\n  margin-top: 25%;\n  width: 200px;\n  height: 60px;\n  font-size: 24px;\n  background: none;\n  border: 1px solid #4b4b4b; }\n  #login:hover {\n    color: white;\n    background-color: black; }\n\n#home {\n  width: 150px;\n  height: 40px;\n  font-size: 14px;\n  background: none; }\n\n.property-container {\n  display: flex;\n  flex-wrap: wrap; }\n\n.property-card {\n  width: 300px;\n  height: 200px;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  margin: 5% 15%; }\n  .property-card h2 {\n    text-align: center;\n    font-size: 24px;\n    padding: 6% 8% 8% 8%; }\n  .property-card h3 {\n    text-align: center;\n    font-size: 28px;\n    padding: 4% 8% 8% 8%;\n    color: #691B8D; }\n  .property-card h4 {\n    font-size: 28px;\n    padding: 2%;\n    text-align: center;\n    color: #691B8D; }\n\n.chart-img {\n  height: 25px;\n  width: 30px;\n  position: relative;\n  margin-left: 85%;\n  margin-top: 2%; }\n  .chart-img:hover {\n    cursor: pointer; }\n\n.graph-container {\n  margin: 5px 0 0 3%;\n  width: 65%;\n  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);\n  background-color: #ffffff;\n  padding: 2%;\n  margin-bottom: 10%; }\n\n.detail-view {\n  display: flex; }\n\n.card-view-header {\n  display: flex;\n  justify-content: space-between; }\n\n@media screen and (min-width: 600px) {\n  .property-card {\n    margin: 2%; } }\n", ""]);
 
 	// exports
 

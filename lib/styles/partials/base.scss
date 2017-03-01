@@ -25,6 +25,12 @@ a {
 
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3%;
+  button {
+    text-align: left;
+  }
 }
 
 li:visited {
